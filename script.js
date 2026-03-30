@@ -1,55 +1,29 @@
-// Filtro de Culturas
-const filterBtns = document.querySelectorAll('.filter-btn');
-const cultureCards = document.querySelectorAll('.culture-card');
-
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remover classe ativa
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        cultureCards.forEach(card => {
-            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                card.style.display = 'block';
-                card.style.animation = 'fadeIn 0.5s ease forwards';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
-});
-
-// Busca em Tempo Real
-const searchInput = document.getElementById('culturaSearch');
-searchInput.addEventListener('keyup', (e) => {
-    const term = e.target.value.toLowerCase();
-    
-    cultureCards.forEach(card => {
-        const title = card.querySelector('h3').innerText.toLowerCase();
-        if (title.includes(term)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-});
-
-// Mensagem Interativa
-document.getElementById('contatoBtn').addEventListener('click', () => {
-    const nome = prompt("Como podemos te chamar?");
-    if(nome) {
-        alert(`Olá ${nome}! Nossos consultores técnicos de solo entrarão em contato.`);
+function openCulture(evt, cultureName) {
+    // Esconder todos os painéis de cultura
+    const panels = document.getElementsByClassName("culture-panel");
+    for (let i = 0; i < panels.length; i++) {
+        panels[i].classList.remove("active");
     }
-});
 
-// Suavização de scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+    // Remover a classe "active" de todos os botões
+    const tabBtns = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < tabBtns.length; i++) {
+        tabBtns[i].classList.remove("active");
+    }
+
+    // Mostrar o painel atual e adicionar classe active ao botão que clicou
+    document.getElementById(cultureName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+}
+
+// Efeito de Header ao rolar
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+        header.style.padding = '10px 0';
+        header.style.background = 'rgba(27, 67, 50, 0.95)';
+    } else {
+        header.style.padding = '20px 0';
+        header.style.background = '#1b4332';
+    }
 });
