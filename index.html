@@ -3,159 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroEstat | Hub de Alta Produtividade</title>
+    <title>AgroConceito | Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <nav class="container">
-            <div class="logo">AGRO<span>ESTAT</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">Dashboard</a></li>
-                <li><a href="#biblioteca">Culturas</a></li>
-                <li><a href="#calculadora">Rendimento</a></li>
-                <li><a href="#" class="btn-cta">Acesso Produtor</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Sustentabilidade Baseada em Dados</h1>
-            <p>A maior biblioteca técnica de manejo e performance agrícola do Brasil.</p>
-        </div>
-    </section>
-
-    <section id="biblioteca" class="main-hub container">
-        <div class="section-header">
-            <h2>Central de Culturas</h2>
-            <p>Selecione uma cultura para detalhamento técnico e vídeos de manejo.</p>
-        </div>
-
-        <div class="tabs-container">
-            <aside class="tabs-menu">
-                <button class="tab-btn active" onclick="openCulture(event, 'soja')">
-                    <i class="fas fa-seedling"></i> Soja
-                </button>
-                <button class="tab-btn" onclick="openCulture(event, 'milho')">
-                    <i class="fas fa-wheat-awn"></i> Milho
-                </button>
-                <button class="tab-btn" onclick="openCulture(event, 'cafe')">
-                    <i class="fas fa-mug-hot"></i> Café
-                </button>
-                <button class="tab-btn" onclick="openCulture(event, 'algodao')">
-                    <i class="fas fa-cloud"></i> Algodão
-                </button>
-            </aside>
-
-            <article class="tabs-content">
-                
-                <div id="soja" class="culture-panel active">
-                    <div class="panel-grid">
-                        <div class="info-text">
-                            <h3>Manejo de Soja (Glycine max)</h3>
-                            <p>O foco atual é o <strong>Sistema de Plantio Direto</strong> e a fixação biológica de nitrogênio para redução de custos e impacto ambiental.</p>
-                            
-                            <div class="data-box">
-                                <h4><i class="fas fa-chart-area"></i> Guia de Plantio</h4>
-                                <ul>
-                                    <li><strong>Época:</strong> Outubro a Dezembro (conforme Zoneamento).</li>
-                                    <li><strong>Espaçamento:</strong> 45cm a 50cm entre linhas.</li>
-                                    <li><strong>Profundidade:</strong> 3cm a 5cm.</li>
-                                </ul>
-                            </div>
-
-                            <div class="yield-card">
-                                <h4>Rendimento Médio Esperado</h4>
-                                <span class="number">65 - 82</span> <small>sc/ha</small>
-                            </div>
-                        </div>
-                        <div class="video-side">
-                            <h4>Vídeo Técnico: Plantio e Adubação</h4>
-                            <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/PueM2N2m9g4" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="milho" class="culture-panel">
-                    <div class="panel-grid">
-                        <div class="info-text">
-                            <h3>Milho Safrinha e Verão</h3>
-                            <p>Cultura essencial para rotação de cultura e produção de biomassa para o solo.</p>
-                            
-                            <div class="data-box">
-                                <h4><i class="fas fa-thermometer-half"></i> Exigências</h4>
-                                <ul>
-                                    <li><strong>Solo:</strong> Necessita de alta disponibilidade de Nitrogênio.</li>
-                                    <li><strong>Água:</strong> Sensível ao estresse hídrico no florescimento.</li>
-                                </ul>
-                            </div>
-
-                            <div class="yield-card highlight">
-                                <h4>Rendimento Médio Esperado</h4>
-                                <span class="number">120 - 160</span> <small>sc/ha</small>
-                            </div>
-                        </div>
-                        <div class="video-side">
-                            <h4>Vídeo Técnico: Sucessão Soja-Milho</h4>
-                            <div class="video-wrapper">
-                                <iframe src="https://www.youtube.com/embed/6iR89PZ-7sM" frameborder="0" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                </article>
-        </div>
-    </section>
-
-    <section id="calculadora" class="metrics container">
-        <h3>Tabela Comparativa de Rendimento Sustentável</h3>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cultura</th>
-                        <th>Investimento Médio (R$/ha)</th>
-                        <th>Mão de Obra</th>
-                        <th>Impacto Carbono</th>
-                        <th>Lucratividade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Soja</td>
-                        <td>R$ 4.500 - 6.000</td>
-                        <td>Baixa (Mecanizada)</td>
-                        <td>Baixo (Fixação N)</td>
-                        <td class="pos">Alta</td>
-                    </tr>
-                    <tr>
-                        <td>Café</td>
-                        <td>R$ 15.000 - 25.000</td>
-                        <td>Alta</td>
-                        <td>Médio</td>
-                        <td class="pos">Muito Alta</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 AgroEstat Sustentável - Transformando o Campo com Dados.</p>
-            <div class="footer-links">
-                <a href="https://www.embrapa.br" target="_blank">Embrapa</a>
-                <a href="#">Canal Rural</a>
-                <a href="#">MAPA</a>
+    <div class="main-wrapper">
+        <nav class="sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-leaf"></i>
+                <span>AgroForte</span>
             </div>
-        </div>
-    </footer>
+            <ul class="nav-menu">
+                <li class="nav-item active" onclick="switchTab('manifesto')">
+                    <i class="fas fa-home"></i> <span>Manifesto</span>
+                </li>
+                <li class="nav-item" onclick="switchTab('agro-forte')">
+                    <i class="fas fa-fist-raised"></i> <span>O que é Agro Forte?</span>
+                </li>
+                <li class="nav-item" onclick="switchTab('sustentabilidade')">
+                    <i class="fas fa-recycle"></i> <span>Sustentabilidade</span>
+                </li>
+                <li class="nav-item" onclick="switchTab('tecnologia')">
+                    <i class="fas fa-microchip"></i> <span>Tecnologia & Dados</span>
+                </li>
+                <li class="nav-item" onclick="switchTab('faq')">
+                    <i class="fas fa-question-circle"></i> <span>Entenda Tudo</span>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>v2.0 Beta 2026</p>
+            </div>
+        </nav>
+
+        <main class="content-area">
+            
+            <section id="manifesto" class="tab-content active">
+                <div class="hero-banner">
+                    <h1>O Agro não é apenas terra.<br>É a <span>Engenharia da Vida</span>.</h1>
+                    <p>Entenda como a força da produção brasileira se une à preservação para garantir a segurança alimentar global.</p>
+                </div>
+                <div class="video-section">
+                    <h3>Visão Geral: O Novo Agro</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/PueM2N2m9g4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="agro-forte" class="tab-content">
+                <h2>O Conceito de "Agro Forte"</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Para Iniciantes</h4>
+                        <p>Agro Forte refere-se à robustez econômica. É a capacidade de um país produzir alimentos em escala industrial, gerando empregos e equilibrando a economia através das exportações.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Para Especialistas</h4>
+                        <p>Trata-se de resiliência sistêmica. Envolve soberania alimentar, integração de cadeias logísticas complexas e a mitigação de riscos climáticos através de biotecnologia e seguros agrícolas modernos.</p>
+                    </div>
+                </div>
+                <div class="full-text">
+                    <h3>Por que o Brasil é Forte?</h3>
+                    <p>Graças ao clima tropical que permite até três safras por ano e décadas de investimento em ciência (como a Embrapa), transformamos solos pobres em celeiros mundiais.</p>
+                </div>
+            </section>
+
+            <section id="sustentabilidade" class="tab-content">
+                <h2>Sustentabilidade Real</h2>
+                <p class="subtitle">Não é apenas "verde", é eficiência de recursos.</p>
+                
+                <div class="horizontal-scroll">
+                    <div class="concept-card">
+                        <span class="step">01</span>
+                        <h4>Preservação de Matas</h4>
+                        <p>O Código Florestal obriga o produtor a preservar de 20% a 80% de sua terra original.</p>
+                    </div>
+                    <div class="concept-card">
+                        <span class="step">02</span>
+                        <h4>Plantio Direto</h4>
+                        <p>Não revolvemos o solo. A palha da safra anterior protege a terra, retém água e estoca carbono.</p>
+                    </div>
+                    <div class="concept-card">
+                        <span class="step">03</span>
+                        <h4>Bioinsumos</h4>
+                        <p>Uso de bactérias e fungos naturais para combater pragas, reduzindo a dependência de químicos.</p>
+                    </div>
+                </div>
+
+                <div class="video-section">
+                    <h3>O Ciclo da Sustentabilidade</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/6iR89PZ-7sM" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tecnologia" class="tab-content">
+                <h2>A Era Digital no Campo</h2>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <img src="https://images.unsplash.com/photo-1560644893-801288cc050b?auto=format&fit=crop&w=400&q=80" alt="Drones">
+                        <div class="tech-desc">
+                            <h4>Drones e Satélites</h4>
+                            <p>Monitoramento em tempo real de manchas de calor ou falta de nutrientes em pontos específicos da lavoura.</p>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=400&q=80" alt="IA">
+                        <div class="tech-desc">
+                            <h4>Inteligência Artificial</h4>
+                            <p>Algoritmos que prevêem o melhor dia para colher, baseados em 50 anos de dados meteorológicos.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
