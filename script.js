@@ -1,29 +1,30 @@
-function openCulture(evt, cultureName) {
-    // Esconder todos os painéis de cultura
-    const panels = document.getElementsByClassName("culture-panel");
-    for (let i = 0; i < panels.length; i++) {
-        panels[i].classList.remove("active");
-    }
+function switchTab(tabId) {
+    // 1. Esconder todos os conteúdos
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => {
+        content.classList.remove('active');
+    });
 
-    // Remover a classe "active" de todos os botões
-    const tabBtns = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < tabBtns.length; i++) {
-        tabBtns[i].classList.remove("active");
-    }
+    // 2. Remover classe ativa dos itens do menu
+    const menuItems = document.querySelectorAll('.nav-item');
+    menuItems.forEach(item => {
+        item.classList.remove('active');
+    });
 
-    // Mostrar o painel atual e adicionar classe active ao botão que clicou
-    document.getElementById(cultureName).classList.add("active");
-    evt.currentTarget.classList.add("active");
+    // 3. Mostrar o conteúdo selecionado
+    document.getElementById(tabId).classList.add('active');
+
+    // 4. Ativar o item correspondente no menu lateral
+    // Buscamos o item que possui a função switchTab com o ID correto
+    menuItems.forEach(item => {
+        if(item.getAttribute('onclick').includes(tabId)) {
+            item.classList.add('active');
+        }
+    });
+
+    // 5. Scroll para o topo da área de conteúdo
+    document.querySelector('.content-area').scrollTop = 0;
 }
 
-// Efeito de Header ao rolar
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.style.padding = '10px 0';
-        header.style.background = 'rgba(27, 67, 50, 0.95)';
-    } else {
-        header.style.padding = '20px 0';
-        header.style.background = '#1b4332';
-    }
-});
+// Pequeno efeito sonoro ou feedback visual pode ser adicionado aqui
+console.log("Sistema AgroConceito Carregado.");
