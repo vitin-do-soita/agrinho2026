@@ -3,147 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroForte Pro | Hub de Sustentabilidade</title>
+    <title>AgroEstat | Hub de Alta Produtividade</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <nav>
-            <div class="logo">Agro<span>Forte</span> <small>Sustentável</small></div>
+        <nav class="container">
+            <div class="logo">AGRO<span>ESTAT</span></div>
             <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#culturas">Culturas</a></li>
-                <li><a href="#tecnologia">Tecnologia</a></li>
-                <li><button id="contatoBtn" class="pulse">Falar com Especialista</button></li>
+                <li><a href="#home">Dashboard</a></li>
+                <li><a href="#biblioteca">Culturas</a></li>
+                <li><a href="#calculadora">Rendimento</a></li>
+                <li><a href="#" class="btn-cta">Acesso Produtor</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-overlay">
-            <h1>Inteligência aplicada ao Campo</h1>
-            <p>Explore guias detalhados de produção, métricas de rendimento e técnicas de manejo regenerativo.</p>
-            <div class="search-box">
-                <input type="text" placeholder="Buscar cultura (ex: Soja, Café)..." id="culturaSearch">
-                <i class="fas fa-search"></i>
-            </div>
+        <div class="hero-content">
+            <h1>Sustentabilidade Baseada em Dados</h1>
+            <p>A maior biblioteca técnica de manejo e performance agrícola do Brasil.</p>
         </div>
     </section>
 
-    <main id="culturas" class="container">
-        <h2 class="section-title">Guia de Culturas e Produção</h2>
-        
-        <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">Todas</button>
-            <button class="filter-btn" data-filter="graos">Grãos</button>
-            <button class="filter-btn" data-filter="perenes">Perenes</button>
+    <section id="biblioteca" class="main-hub container">
+        <div class="section-header">
+            <h2>Central de Culturas</h2>
+            <p>Selecione uma cultura para detalhamento técnico e vídeos de manejo.</p>
         </div>
 
-        <div class="culture-grid">
-            <div class="culture-card" data-category="graos">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="card-content">
-                    <span class="tag">Grãos</span>
-                    <h3>Soja Sustentável</h3>
-                    <p>Principal commodity brasileira, foco em plantio direto.</p>
-                    
-                    <div class="stats">
-                        <div class="stat-item">
-                            <i class="fas fa-seedling"></i>
-                            <span><strong>Solo:</strong> Argiloso/Fértil</span>
-                        </div>
-                        <div class="stat-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span><strong>Rendimento:</strong> 60-80 sacas/ha</span>
-                        </div>
-                    </div>
+        <div class="tabs-container">
+            <aside class="tabs-menu">
+                <button class="tab-btn active" onclick="openCulture(event, 'soja')">
+                    <i class="fas fa-seedling"></i> Soja
+                </button>
+                <button class="tab-btn" onclick="openCulture(event, 'milho')">
+                    <i class="fas fa-wheat-awn"></i> Milho
+                </button>
+                <button class="tab-btn" onclick="openCulture(event, 'cafe')">
+                    <i class="fas fa-mug-hot"></i> Café
+                </button>
+                <button class="tab-btn" onclick="openCulture(event, 'algodao')">
+                    <i class="fas fa-cloud"></i> Algodão
+                </button>
+            </aside>
 
-                    <div class="requirements">
-                        <h4>Necessidades:</h4>
-                        <ul>
-                            <li>Precipitação: 450-800mm</li>
-                            <li>Clima: 20°C a 30°C</li>
-                        </ul>
-                    </div>
-                    
-                    <a href="https://www.embrapa.br/soja" target="_blank" class="external-link">Ver detalhes técnicos <i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
+            <article class="tabs-content">
+                
+                <div id="soja" class="culture-panel active">
+                    <div class="panel-grid">
+                        <div class="info-text">
+                            <h3>Manejo de Soja (Glycine max)</h3>
+                            <p>O foco atual é o <strong>Sistema de Plantio Direto</strong> e a fixação biológica de nitrogênio para redução de custos e impacto ambiental.</p>
+                            
+                            <div class="data-box">
+                                <h4><i class="fas fa-chart-area"></i> Guia de Plantio</h4>
+                                <ul>
+                                    <li><strong>Época:</strong> Outubro a Dezembro (conforme Zoneamento).</li>
+                                    <li><strong>Espaçamento:</strong> 45cm a 50cm entre linhas.</li>
+                                    <li><strong>Profundidade:</strong> 3cm a 5cm.</li>
+                                </ul>
+                            </div>
 
-            <div class="culture-card" data-category="graos">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="card-content">
-                    <span class="tag">Grãos</span>
-                    <h3>Milho Safrinha</h3>
-                    <p>Otimização de sucessão de culturas e biomassa.</p>
-                    
-                    <div class="stats">
-                        <div class="stat-item">
-                            <i class="fas fa-seedling"></i>
-                            <span><strong>Solo:</strong> Drenado</span>
+                            <div class="yield-card">
+                                <h4>Rendimento Médio Esperado</h4>
+                                <span class="number">65 - 82</span> <small>sc/ha</small>
+                            </div>
                         </div>
-                        <div class="stat-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span><strong>Rendimento:</strong> 100-150 sacas/ha</span>
+                        <div class="video-side">
+                            <h4>Vídeo Técnico: Plantio e Adubação</h4>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/PueM2N2m9g4" frameborder="0" allowfullscreen></iframe>
+                            </div>
                         </div>
                     </div>
-                    <a href="#" class="external-link">Manual de Produção <i class="fas fa-external-link-alt"></i></a>
                 </div>
-            </div>
+
+                <div id="milho" class="culture-panel">
+                    <div class="panel-grid">
+                        <div class="info-text">
+                            <h3>Milho Safrinha e Verão</h3>
+                            <p>Cultura essencial para rotação de cultura e produção de biomassa para o solo.</p>
+                            
+                            <div class="data-box">
+                                <h4><i class="fas fa-thermometer-half"></i> Exigências</h4>
+                                <ul>
+                                    <li><strong>Solo:</strong> Necessita de alta disponibilidade de Nitrogênio.</li>
+                                    <li><strong>Água:</strong> Sensível ao estresse hídrico no florescimento.</li>
+                                </ul>
+                            </div>
+
+                            <div class="yield-card highlight">
+                                <h4>Rendimento Médio Esperado</h4>
+                                <span class="number">120 - 160</span> <small>sc/ha</small>
+                            </div>
+                        </div>
+                        <div class="video-side">
+                            <h4>Vídeo Técnico: Sucessão Soja-Milho</h4>
+                            <div class="video-wrapper">
+                                <iframe src="https://www.youtube.com/embed/6iR89PZ-7sM" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </article>
         </div>
-    </main>
+    </section>
 
-    <section id="tecnologia" class="data-section">
-        <div class="container">
-            <h2>Tecnologia e Rendimento Médio</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Cultura</th>
-                            <th>Insumos Básicos</th>
-                            <th>Tempo de Ciclo</th>
-                            <th>Rendimento Esperado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Algodão</td>
-                            <td>N-P-K + Defensivos Biológicos</td>
-                            <td>140 - 180 dias</td>
-                            <td>280 - 320 arrobas/ha</td>
-                        </tr>
-                        <tr>
-                            <td>Café Arábica</td>
-                            <td>Fertirrigação + Poda</td>
-                            <td>Perene</td>
-                            <td>30 - 50 sacas/ha</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+    <section id="calculadora" class="metrics container">
+        <h3>Tabela Comparativa de Rendimento Sustentável</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cultura</th>
+                        <th>Investimento Médio (R$/ha)</th>
+                        <th>Mão de Obra</th>
+                        <th>Impacto Carbono</th>
+                        <th>Lucratividade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Soja</td>
+                        <td>R$ 4.500 - 6.000</td>
+                        <td>Baixa (Mecanizada)</td>
+                        <td>Baixo (Fixação N)</td>
+                        <td class="pos">Alta</td>
+                    </tr>
+                    <tr>
+                        <td>Café</td>
+                        <td>R$ 15.000 - 25.000</td>
+                        <td>Alta</td>
+                        <td>Médio</td>
+                        <td class="pos">Muito Alta</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
     <footer>
-        <div class="footer-grid">
-            <div>
-                <h4>AgroForte</h4>
-                <p>O futuro da agricultura passa pela informação de qualidade.</p>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+        <div class="container footer-content">
+            <p>&copy; 2026 AgroEstat Sustentável - Transformando o Campo com Dados.</p>
+            <div class="footer-links">
+                <a href="https://www.embrapa.br" target="_blank">Embrapa</a>
+                <a href="#">Canal Rural</a>
+                <a href="#">MAPA</a>
             </div>
         </div>
-        <p class="copy">&copy; 2026 AgroForte Sustentável - Hub de Conhecimento.</p>
     </footer>
 
     <script src="script.js"></script>
