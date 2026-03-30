@@ -3,52 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte | Futuro Sustentável</title>
+    <title>AgroForte Pro | Hub de Sustentabilidade</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
         <nav>
-            <div class="logo">Agro<span>Forte</span></div>
+            <div class="logo">Agro<span>Forte</span> <small>Sustentável</small></div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#culturas">Culturas</a></li>
                 <li><a href="#tecnologia">Tecnologia</a></li>
-                <li><button id="contatoBtn">Contato</button></li>
+                <li><button id="contatoBtn" class="pulse">Falar com Especialista</button></li>
             </ul>
         </nav>
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>O Campo é a nossa força, a sustentabilidade o nosso futuro.</h1>
-            <p>Unindo tecnologia de ponta com respeito à terra para alimentar o mundo.</p>
-            <a href="#sobre" class="btn-main">Saiba Mais</a>
+        <div class="hero-overlay">
+            <h1>Inteligência aplicada ao Campo</h1>
+            <p>Explore guias detalhados de produção, métricas de rendimento e técnicas de manejo regenerativo.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar cultura (ex: Soja, Café)..." id="culturaSearch">
+                <i class="fas fa-search"></i>
+            </div>
         </div>
     </section>
 
-    <section id="sobre" class="features">
-        <h2>Nossos Pilares</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>Preservação</h3>
-                <p>Gestão consciente de recursos hídricos e recuperação de áreas degradadas.</p>
+    <main id="culturas" class="container">
+        <h2 class="section-title">Guia de Culturas e Produção</h2>
+        
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="graos">Grãos</button>
+            <button class="filter-btn" data-filter="perenes">Perenes</button>
+        </div>
+
+        <div class="culture-grid">
+            <div class="culture-card" data-category="graos">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <span class="tag">Grãos</span>
+                    <h3>Soja Sustentável</h3>
+                    <p>Principal commodity brasileira, foco em plantio direto.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <i class="fas fa-seedling"></i>
+                            <span><strong>Solo:</strong> Argiloso/Fértil</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span><strong>Rendimento:</strong> 60-80 sacas/ha</span>
+                        </div>
+                    </div>
+
+                    <div class="requirements">
+                        <h4>Necessidades:</h4>
+                        <ul>
+                            <li>Precipitação: 450-800mm</li>
+                            <li>Clima: 20°C a 30°C</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="https://www.embrapa.br/soja" target="_blank" class="external-link">Ver detalhes técnicos <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
-            <div class="card">
-                <h3>Inovação</h3>
-                <p>Uso de drones e IA para otimizar o plantio e reduzir desperdícios.</p>
+
+            <div class="culture-card" data-category="graos">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <span class="tag">Grãos</span>
+                    <h3>Milho Safrinha</h3>
+                    <p>Otimização de sucessão de culturas e biomassa.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <i class="fas fa-seedling"></i>
+                            <span><strong>Solo:</strong> Drenado</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span><strong>Rendimento:</strong> 100-150 sacas/ha</span>
+                        </div>
+                    </div>
+                    <a href="#" class="external-link">Manual de Produção <i class="fas fa-external-link-alt"></i></a>
+                </div>
             </div>
-            <div class="card">
-                <h3>Eficiência</h3>
-                <p>Maximizar a produção por hectare com o menor impacto ambiental possível.</p>
+        </div>
+    </main>
+
+    <section id="tecnologia" class="data-section">
+        <div class="container">
+            <h2>Tecnologia e Rendimento Médio</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cultura</th>
+                            <th>Insumos Básicos</th>
+                            <th>Tempo de Ciclo</th>
+                            <th>Rendimento Esperado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Algodão</td>
+                            <td>N-P-K + Defensivos Biológicos</td>
+                            <td>140 - 180 dias</td>
+                            <td>280 - 320 arrobas/ha</td>
+                        </tr>
+                        <tr>
+                            <td>Café Arábica</td>
+                            <td>Fertirrigação + Poda</td>
+                            <td>Perene</td>
+                            <td>30 - 50 sacas/ha</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Agro Forte - Futuro Sustentável. Desenvolvido para o GitHub.</p>
+        <div class="footer-grid">
+            <div>
+                <h4>AgroForte</h4>
+                <p>O futuro da agricultura passa pela informação de qualidade.</p>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <p class="copy">&copy; 2026 AgroForte Sustentável - Hub de Conhecimento.</p>
     </footer>
 
     <script src="script.js"></script>
