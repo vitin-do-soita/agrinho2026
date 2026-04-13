@@ -9,56 +9,71 @@
 <body>
 
   <header>
-    <h1>Agro Forte</h1>
-    <p>Futuro Sustentável: equilíbrio entre produção e meio ambiente</p>
+    <div class="header-content">
+      <h1>Agro Forte</h1>
+      <p>Futuro Sustentável: equilíbrio entre produção e meio ambiente</p>
+    </div>
   </header>
 
+  <nav class="tab-nav">
+    <button class="tab-button active" onclick="openTab(event, 'compromisso')">Compromisso</button>
+    <button class="tab-button" onclick="openTab(event, 'areas')">Áreas</button>
+    <button class="tab-button" onclick="openTab(event, 'impacto')">Impacto</button>
+    <button class="tab-button" onclick="openTab(event, 'contato')">Contato</button>
+  </nav>
+
   <main>
-    <section class="compromisso">
-      <h2>Nosso Compromisso</h2>
-      <p>Na Agro Forte, unimos produtividade e preservação ambiental, garantindo alimentos de qualidade e um planeta saudável para as próximas gerações.</p>
+    <section id="compromisso" class="tab-section active" style="background-image: url('https://images.unsplash.com/photo-1565120130282-6fa331b1c64d?auto=format&fit=crop&w=1600&q=80');">
+      <div class="section-content">
+        <h2>Nosso Compromisso</h2>
+        <p>Unimos produtividade e preservação ambiental, garantindo alimentos de qualidade e um planeta saudável.</p>
+      </div>
     </section>
 
-    <section class="areas">
+    <section id="areas" class="tab-section" style="background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80');">
       <h2>Áreas de Atuação</h2>
       <div class="cards">
         <div class="card" onclick="toggleCard(this)">
           <h3>Produção Sustentável</h3>
-          <p>Técnicas agrícolas que aumentam a produtividade sem degradar o solo ou recursos naturais.</p>
+          <p>Técnicas agrícolas que aumentam a produtividade sem degradar o solo.</p>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <h3>Energia Renovável</h3>
-          <p>Utilizamos fontes limpas de energia, reduzindo impactos ambientais e promovendo inovação no campo.</p>
+          <p>Fontes limpas de energia para reduzir impactos ambientais.</p>
         </div>
         <div class="card" onclick="toggleCard(this)">
           <h3>Conservação Ambiental</h3>
-          <p>Preservação de matas ciliares, rios e biodiversidade garante o equilíbrio entre produção e natureza.</p>
+          <p>Preservação de rios, florestas e biodiversidade.</p>
         </div>
       </div>
     </section>
 
-    <section class="impacto">
-      <h2>Impacto em Números</h2>
-      <div class="stats">
-        <div class="stat">
-          <h3 id="stat1">0</h3>
-          <p>Hectares preservados</p>
-        </div>
-        <div class="stat">
-          <h3 id="stat2">0</h3>
-          <p>Projetos sustentáveis</p>
-        </div>
-        <div class="stat">
-          <h3 id="stat3">0</h3>
-          <p>Energia renovável utilizada (MWh)</p>
+    <section id="impacto" class="tab-section" style="background-image: url('https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1600&q=80');">
+      <div class="section-content">
+        <h2>Impacto em Números</h2>
+        <div class="stats">
+          <div class="stat">
+            <h3 id="stat1">0</h3>
+            <p>Hectares preservados</p>
+          </div>
+          <div class="stat">
+            <h3 id="stat2">0</h3>
+            <p>Projetos sustentáveis</p>
+          </div>
+          <div class="stat">
+            <h3 id="stat3">0</h3>
+            <p>Energia renovável (MWh)</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="contato">
-      <h2>Junte-se a Nós</h2>
-      <p>Quer participar de nossos projetos e construir um futuro equilibrado? Entre em contato e faça parte do Agro Forte!</p>
-      <button onclick="contatoAlert()">Contate-nos</button>
+    <section id="contato" class="tab-section" style="background-color: #dff3e0;">
+      <div class="section-content">
+        <h2>Junte-se a Nós</h2>
+        <p>Participe de nossos projetos e ajude a construir um futuro equilibrado!</p>
+        <button class="btn-contact" onclick="contatoAlert()">Contate-nos</button>
+      </div>
     </section>
   </main>
 
