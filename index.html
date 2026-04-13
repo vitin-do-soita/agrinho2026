@@ -1,73 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroSustentável | Futuro Forte</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro Forte - Futuro Sustentável</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="container header-flex">
-            <div class="logo">
-                <span class="icon">🌱</span> <strong>AgroForte</strong>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
-                    <li><a href="#contato" class="nav-link">Engajamento</a></li>
-                    <li><button id="theme-toggle" class="btn-icon" aria-label="Mudar tema">🌓</button></li>
-                </ul>
-            </nav>
+  <header>
+    <h1>Agro Forte</h1>
+    <p>Futuro Sustentável: equilíbrio entre produção e meio ambiente</p>
+  </header>
+
+  <main>
+    <section class="compromisso">
+      <h2>Nosso Compromisso</h2>
+      <p>Na Agro Forte, unimos produtividade e preservação ambiental, garantindo alimentos de qualidade e um planeta saudável para as próximas gerações.</p>
+    </section>
+
+    <section class="areas">
+      <h2>Áreas de Atuação</h2>
+      <div class="cards">
+        <div class="card" onclick="toggleCard(this)">
+          <h3>Produção Sustentável</h3>
+          <p>Técnicas agrícolas que aumentam a produtividade sem degradar o solo ou recursos naturais.</p>
         </div>
-    </header>
+        <div class="card" onclick="toggleCard(this)">
+          <h3>Energia Renovável</h3>
+          <p>Utilizamos fontes limpas de energia, reduzindo impactos ambientais e promovendo inovação no campo.</p>
+        </div>
+        <div class="card" onclick="toggleCard(this)">
+          <h3>Conservação Ambiental</h3>
+          <p>Preservação de matas ciliares, rios e biodiversidade garante o equilíbrio entre produção e natureza.</p>
+        </div>
+      </div>
+    </section>
 
-    <main class="container">
-        <section class="hero-section">
-            <div class="glass-card">
-                <h1 id="main-title">O Futuro da Produção Sustentável</h1>
-                <p>Equilibrando a força do campo com o respeito à natureza.</p>
-                <div class="user-box">
-                    <label for="input-user">Produtor, identifique-se:</label>
-                    <div class="input-group">
-                        <input type="text" id="input-user" placeholder="Seu nome aqui...">
-                        <button id="btn-login">Acessar Painel</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="impacto">
+      <h2>Impacto em Números</h2>
+      <div class="stats">
+        <div class="stat">
+          <h3 id="stat1">0</h3>
+          <p>Hectares preservados</p>
+        </div>
+        <div class="stat">
+          <h3 id="stat2">0</h3>
+          <p>Projetos sustentáveis</p>
+        </div>
+        <div class="stat">
+          <h3 id="stat3">0</h3>
+          <p>Energia renovável utilizada (MWh)</p>
+        </div>
+      </div>
+    </section>
 
-        <section id="dashboard" class="dashboard-grid">
-            <div class="stat-card">
-                <h3>Reserva Legal</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="fill-reserva" style="width: 0%;"></div>
-                </div>
-                <p><span id="val-reserva">0</span>% Protegido</p>
-            </div>
+    <section class="contato">
+      <h2>Junte-se a Nós</h2>
+      <p>Quer participar de nossos projetos e construir um futuro equilibrado? Entre em contato e faça parte do Agro Forte!</p>
+      <button onclick="contatoAlert()">Contate-nos</button>
+    </section>
+  </main>
 
-            <div class="stat-card">
-                <h3>Uso de Água</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill water" id="fill-agua" style="width: 0%;"></div>
-                </div>
-                <p><span id="val-agua">0</span>% Eficiência</p>
-            </div>
+  <footer>
+    <p>© 2026 Agro Forte | <a href="#">Contato</a></p>
+  </footer>
 
-            <div class="stat-card">
-                <h3>Emissões CO2</h3>
-                <div class="status-badge" id="co2-status">Calculando...</div>
-                <button class="btn-small" onclick="atualizarDados()">Simular Safra</button>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <p>Projeto Agrinho 2026 - Sustentabilidade e Inovação</p>
-        <p><small>Mídias customizadas via Canva e Piskel.</small></p>
-    </footer>
-
-    <script src="assets/js/script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
