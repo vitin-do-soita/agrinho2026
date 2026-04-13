@@ -3,128 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgroConceito | Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Agro Forte: Futuro Sustentável</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <div class="main-wrapper">
-        <nav class="sidebar">
-            <div class="sidebar-logo">
-                <i class="fas fa-leaf"></i>
-                <span>AgroForte</span>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item active" onclick="switchTab('manifesto')">
-                    <i class="fas fa-home"></i> <span>Manifesto</span>
-                </li>
-                <li class="nav-item" onclick="switchTab('agro-forte')">
-                    <i class="fas fa-fist-raised"></i> <span>O que é Agro Forte?</span>
-                </li>
-                <li class="nav-item" onclick="switchTab('sustentabilidade')">
-                    <i class="fas fa-recycle"></i> <span>Sustentabilidade</span>
-                </li>
-                <li class="nav-item" onclick="switchTab('tecnologia')">
-                    <i class="fas fa-microchip"></i> <span>Tecnologia & Dados</span>
-                </li>
-                <li class="nav-item" onclick="switchTab('faq')">
-                    <i class="fas fa-question-circle"></i> <span>Entenda Tudo</span>
-                </li>
+    <header>
+        <nav id="main-nav">
+            <span class="logo">AgroSustentável</span>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Equilíbrio</a></li>
+                <li><button id="btn-theme">Alternar Modo</button></li>
             </ul>
-            <div class="sidebar-footer">
-                <p>v2.0 Beta 2026</p>
-            </div>
         </nav>
+    </header>
 
-        <main class="content-area">
-            
-            <section id="manifesto" class="tab-content active">
-                <div class="hero-banner">
-                    <h1>O Agro não é apenas terra.<br>É a <span>Engenharia da Vida</span>.</h1>
-                    <p>Entenda como a força da produção brasileira se une à preservação para garantir a segurança alimentar global.</p>
-                </div>
-                <div class="video-section">
-                    <h3>Visão Geral: O Novo Agro</h3>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/PueM2N2m9g4" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </section>
-
-            <section id="agro-forte" class="tab-content">
-                <h2>O Conceito de "Agro Forte"</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <i class="fas fa-chart-line"></i>
-                        <h4>Para Iniciantes</h4>
-                        <p>Agro Forte refere-se à robustez econômica. É a capacidade de um país produzir alimentos em escala industrial, gerando empregos e equilibrando a economia através das exportações.</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Para Especialistas</h4>
-                        <p>Trata-se de resiliência sistêmica. Envolve soberania alimentar, integração de cadeias logísticas complexas e a mitigação de riscos climáticos através de biotecnologia e seguros agrícolas modernos.</p>
-                    </div>
-                </div>
-                <div class="full-text">
-                    <h3>Por que o Brasil é Forte?</h3>
-                    <p>Graças ao clima tropical que permite até três safras por ano e décadas de investimento em ciência (como a Embrapa), transformamos solos pobres em celeiros mundiais.</p>
-                </div>
-            </section>
-
-            <section id="sustentabilidade" class="tab-content">
-                <h2>Sustentabilidade Real</h2>
-                <p class="subtitle">Não é apenas "verde", é eficiência de recursos.</p>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1 id="welcome-msg">Bem-vindo ao Futuro do Campo</h1>
+                <p>Equilibrando produção e meio ambiente com tecnologia.</p>
                 
-                <div class="horizontal-scroll">
-                    <div class="concept-card">
-                        <span class="step">01</span>
-                        <h4>Preservação de Matas</h4>
-                        <p>O Código Florestal obriga o produtor a preservar de 20% a 80% de sua terra original.</p>
-                    </div>
-                    <div class="concept-card">
-                        <span class="step">02</span>
-                        <h4>Plantio Direto</h4>
-                        <p>Não revolvemos o solo. A palha da safra anterior protege a terra, retém água e estoca carbono.</p>
-                    </div>
-                    <div class="concept-card">
-                        <span class="step">03</span>
-                        <h4>Bioinsumos</h4>
-                        <p>Uso de bactérias e fungos naturais para combater pragas, reduzindo a dependência de químicos.</p>
-                    </div>
+                <div class="form-group">
+                    <label for="user-name">Como podemos te chamar?</label>
+                    <input type="text" id="user-name" placeholder="Digite seu nome...">
+                    <button id="btn-greet">Personalizar</button>
                 </div>
+            </div>
+        </section>
 
-                <div class="video-section">
-                    <h3>O Ciclo da Sustentabilidade</h3>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/6iR89PZ-7sM" frameborder="0" allowfullscreen></iframe>
-                    </div>
+        <section id="sobre" class="content">
+            <h2>Tecnologia e Natureza</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Produção Eficiente</h3>
+                    <p>Otimização de colheitas com uso reduzido de recursos hídricos.</p>
                 </div>
-            </section>
-
-            <section id="tecnologia" class="tab-content">
-                <h2>A Era Digital no Campo</h2>
-                <div class="tech-stack">
-                    <div class="tech-item">
-                        <img src="https://images.unsplash.com/photo-1560644893-801288cc050b?auto=format&fit=crop&w=400&q=80" alt="Drones">
-                        <div class="tech-desc">
-                            <h4>Drones e Satélites</h4>
-                            <p>Monitoramento em tempo real de manchas de calor ou falta de nutrientes em pontos específicos da lavoura.</p>
-                        </div>
-                    </div>
-                    <div class="tech-item">
-                        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=400&q=80" alt="IA">
-                        <div class="tech-desc">
-                            <h4>Inteligência Artificial</h4>
-                            <p>Algoritmos que prevêem o melhor dia para colher, baseados em 50 anos de dados meteorológicos.</p>
-                        </div>
-                    </div>
+                <div class="card">
+                    <h3>Preservação</h3>
+                    <p>Manutenção de áreas de reserva legal e corredores ecológicos.</p>
                 </div>
-            </section>
+            </div>
 
-        </main>
-    </div>
+            <div class="counter-section">
+                <p>Hectares Monitorados: <span id="counter">0</span></p>
+                <button id="btn-update-counter">Atualizar Monitoramento</button>
+            </div>
+        </section>
+    </main>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 Projeto Agrinho - Conteúdo 100% Autoral</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
