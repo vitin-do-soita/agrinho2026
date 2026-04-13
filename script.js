@@ -1,30 +1,39 @@
-function switchTab(tabId) {
-    // 1. Esconder todos os conteúdos
-    const contents = document.querySelectorAll('.tab-content');
-    contents.forEach(content => {
-        content.classList.remove('active');
-    });
+// Seleção de elementos do DOM
+const btnGreet = document.getElementById('btn-greet');
+const inputName = document.getElementById('user-name');
+const welcomeMsg = document.getElementById('welcome-msg');
+const btnTheme = document.getElementById('btn-theme');
+const counterDisplay = document.getElementById('counter');
+const btnCounter = document.getElementById('btn-update-counter');
 
-    // 2. Remover classe ativa dos itens do menu
-    const menuItems = document.querySelectorAll('.nav-item');
-    menuItems.forEach(item => {
-        item.classList.remove('active');
-    });
+// 1. Variável para armazenar dados e processar informação
+let countValue = 0;
 
-    // 3. Mostrar o conteúdo selecionado
-    document.getElementById(tabId).classList.add('active');
+// 2. Função para personalizar saudação (Manipulação de DOM)
+btnGreet.addEventListener('click', () => {
+    const name = inputName.value;
+    if (name) {
+        welcomeMsg.innerText = `Olá, ${name}! Vamos cultivar o amanhã?`;
+        inputName.value = ''; // Limpa o campo
+    } else {
+        alert("Por favor, digite seu nome.");
+    }
+});
 
-    // 4. Ativar o item correspondente no menu lateral
-    // Buscamos o item que possui a função switchTab com o ID correto
-    menuItems.forEach(item => {
-        if(item.getAttribute('onclick').includes(tabId)) {
-            item.classList.add('active');
-        }
-    });
+// 3. Atualização de contador (Lógica de processamento)
+btnCounter.addEventListener('click', () => {
+    countValue += 150; // Simula acréscimo de hectares
+    counterDisplay.innerText = countValue.toLocaleString('pt-BR');
+    
+    // Efeito visual simples via JS
+    counterDisplay.style.color = '#8bc34a';
+    setTimeout(() => counterDisplay.style.color = '', 500);
+});
 
-    // 5. Scroll para o topo da área de conteúdo
-    document.querySelector('.content-area').scrollTop = 0;
-}
+// 4. Melhoria de experiência: Modo Escuro
+btnTheme.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
 
-// Pequeno efeito sonoro ou feedback visual pode ser adicionado aqui
-console.log("Sistema AgroConceito Carregado.");
+// Comentário: O script garante que não existam erros no console
+console.log("Sistema AgroSustentável carregado com sucesso.");
