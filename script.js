@@ -1,16 +1,4 @@
-// Navegação por abas
-function openTab(evt, tabName){
-  const sections = document.querySelectorAll('.tab-section');
-  const buttons = document.querySelectorAll('.tab-button');
-
-  sections.forEach(s => s.classList.remove('active'));
-  buttons.forEach(b => b.classList.remove('active'));
-
-  document.getElementById(tabName).classList.add('active');
-  evt.currentTarget.classList.add('active');
-}
-
-// Expande/retrai cards
+// Cards expansíveis
 function toggleCard(card){
   card.classList.toggle('expanded');
 }
@@ -30,14 +18,23 @@ function animateStat(id, target){
   },20);
 }
 
-// Inicializar contadores
+// Inicializar contadores ao carregar a página
 window.addEventListener('load', ()=>{
   animateStat('stat1', 1500);
   animateStat('stat2', 45);
   animateStat('stat3', 1200);
 });
 
-// Botão contato
+// Botão de contato
 function contatoAlert(){
   alert('Obrigado por entrar em contato! Entraremos em breve.');
 }
+
+// Scroll suave para navbar
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function(e){
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    target.scrollIntoView({behavior:'smooth'});
+  });
+});
