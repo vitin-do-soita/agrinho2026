@@ -3,58 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte: Futuro Sustentável</title>
+    <title>AgroSustentável | Futuro Forte</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <header>
-        <nav id="main-nav">
-            <span class="logo">AgroSustentável</span>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Equilíbrio</a></li>
-                <li><button id="btn-theme">Alternar Modo</button></li>
-            </ul>
-        </nav>
+    <header class="main-header">
+        <div class="container header-flex">
+            <div class="logo">
+                <span class="icon">🌱</span> <strong>AgroForte</strong>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                    <li><a href="#contato" class="nav-link">Engajamento</a></li>
+                    <li><button id="theme-toggle" class="btn-icon" aria-label="Mudar tema">🌓</button></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1 id="welcome-msg">Bem-vindo ao Futuro do Campo</h1>
-                <p>Equilibrando produção e meio ambiente com tecnologia.</p>
-                
-                <div class="form-group">
-                    <label for="user-name">Como podemos te chamar?</label>
-                    <input type="text" id="user-name" placeholder="Digite seu nome...">
-                    <button id="btn-greet">Personalizar</button>
+    <main class="container">
+        <section class="hero-section">
+            <div class="glass-card">
+                <h1 id="main-title">O Futuro da Produção Sustentável</h1>
+                <p>Equilibrando a força do campo com o respeito à natureza.</p>
+                <div class="user-box">
+                    <label for="input-user">Produtor, identifique-se:</label>
+                    <div class="input-group">
+                        <input type="text" id="input-user" placeholder="Seu nome aqui...">
+                        <button id="btn-login">Acessar Painel</button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="sobre" class="content">
-            <h2>Tecnologia e Natureza</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Produção Eficiente</h3>
-                    <p>Otimização de colheitas com uso reduzido de recursos hídricos.</p>
+        <section id="dashboard" class="dashboard-grid">
+            <div class="stat-card">
+                <h3>Reserva Legal</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="fill-reserva" style="width: 0%;"></div>
                 </div>
-                <div class="card">
-                    <h3>Preservação</h3>
-                    <p>Manutenção de áreas de reserva legal e corredores ecológicos.</p>
-                </div>
+                <p><span id="val-reserva">0</span>% Protegido</p>
             </div>
 
-            <div class="counter-section">
-                <p>Hectares Monitorados: <span id="counter">0</span></p>
-                <button id="btn-update-counter">Atualizar Monitoramento</button>
+            <div class="stat-card">
+                <h3>Uso de Água</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill water" id="fill-agua" style="width: 0%;"></div>
+                </div>
+                <p><span id="val-agua">0</span>% Eficiência</p>
+            </div>
+
+            <div class="stat-card">
+                <h3>Emissões CO2</h3>
+                <div class="status-badge" id="co2-status">Calculando...</div>
+                <button class="btn-small" onclick="atualizarDados()">Simular Safra</button>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2024 Projeto Agrinho - Conteúdo 100% Autoral</p>
+    <footer class="main-footer">
+        <p>Projeto Agrinho 2026 - Sustentabilidade e Inovação</p>
+        <p><small>Mídias customizadas via Canva e Piskel.</small></p>
     </footer>
 
     <script src="assets/js/script.js"></script>
