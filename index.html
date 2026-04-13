@@ -9,30 +9,37 @@
 <body>
 
   <header>
-    <div class="header-content">
+    <nav class="navbar">
+      <div class="logo">Agro Forte</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#compromisso">Compromisso</a></li>
+        <li><a href="#areas">Áreas</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+        <li><a href="#noticias">Notícias</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div id="home" class="hero">
       <h1>Agro Forte</h1>
       <p>Futuro Sustentável: equilíbrio entre produção e meio ambiente</p>
+      <a href="#compromisso" class="btn-scroll">Saiba Mais</a>
     </div>
   </header>
 
-  <nav class="tab-nav">
-    <button class="tab-button active" onclick="openTab(event, 'compromisso')">Compromisso</button>
-    <button class="tab-button" onclick="openTab(event, 'areas')">Áreas</button>
-    <button class="tab-button" onclick="openTab(event, 'impacto')">Impacto</button>
-    <button class="tab-button" onclick="openTab(event, 'contato')">Contato</button>
-  </nav>
-
   <main>
     <!-- Compromisso -->
-    <section id="compromisso" class="tab-section active" style="background-image: url('https://images.unsplash.com/photo-1565120130282-6fa331b1c64d?auto=format&fit=crop&w=1600&q=80');">
+    <section id="compromisso" class="section" style="background-image: url('https://images.unsplash.com/photo-1565120130282-6fa331b1c64d?auto=format&fit=crop&w=1600&q=80');">
       <div class="section-content">
         <h2>Nosso Compromisso</h2>
-        <p>Na Agro Forte, unimos produtividade e preservação ambiental, garantindo alimentos de qualidade e um planeta saudável.</p>
+        <p>Na Agro Forte, unimos produtividade e preservação ambiental, garantindo alimentos de qualidade e um planeta saudável para as próximas gerações.</p>
       </div>
     </section>
 
-    <!-- Áreas -->
-    <section id="areas" class="tab-section" style="background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80');">
+    <!-- Áreas de Atuação -->
+    <section id="areas" class="section">
       <h2>Áreas de Atuação</h2>
       <div class="cards">
         <div class="card" onclick="toggleCard(this)">
@@ -50,8 +57,27 @@
       </div>
     </section>
 
+    <!-- Projetos -->
+    <section id="projetos" class="section" style="background-color:#e6f2e6;">
+      <h2>Projetos Recentes</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Reflorestamento</h3>
+          <p>Plantio de 10.000 árvores nativas em áreas degradadas.</p>
+        </div>
+        <div class="card">
+          <h3>Horta Comunitária</h3>
+          <p>Incentivo à agricultura urbana sustentável em comunidades locais.</p>
+        </div>
+        <div class="card">
+          <h3>Energia Solar</h3>
+          <p>Implantação de painéis solares em propriedades rurais.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Impacto -->
-    <section id="impacto" class="tab-section" style="background-image: url('https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1600&q=80');">
+    <section id="impacto" class="section" style="background-image: url('https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1600&q=80');">
       <div class="section-content">
         <h2>Impacto em Números</h2>
         <div class="stats">
@@ -71,8 +97,27 @@
       </div>
     </section>
 
+    <!-- Notícias -->
+    <section id="noticias" class="section">
+      <h2>Notícias Recentes</h2>
+      <div class="news-cards">
+        <div class="news-card">
+          <h3>Agro Sustentável em Alta</h3>
+          <p>Novas técnicas agrícolas sustentáveis ganham destaque no Brasil.</p>
+        </div>
+        <div class="news-card">
+          <h3>Energia Limpa no Campo</h3>
+          <p>Iniciativas solares e eólicas crescem nas propriedades rurais.</p>
+        </div>
+        <div class="news-card">
+          <h3>Preservação Ambiental</h3>
+          <p>Projetos de reflorestamento ajudam a reduzir impacto ambiental.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Contato -->
-    <section id="contato" class="tab-section" style="background-color: #dff3e0;">
+    <section id="contato" class="section" style="background-color:#dff3e0;">
       <div class="section-content">
         <h2>Junte-se a Nós</h2>
         <p>Participe de nossos projetos e ajude a construir um futuro equilibrado!</p>
