@@ -1,126 +1,22 @@
-/* Reset básico */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: Arial, sans-serif; scroll-behavior: smooth; background-color: #f0f7f0; color: #2d3e2d; }
-
-/* Navbar fixa */
-.navbar {
-  position: fixed;
-  top:0;
-  width:100%;
-  background-color:#4caf50;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 50px;
-  z-index:1000;
-}
-.navbar .logo { font-size:1.5em; font-weight:bold; color:white; }
-.navbar .nav-links { list-style:none; display:flex; gap:20px; }
-.navbar .nav-links li a { color:white; text-decoration:none; font-weight:bold; transition:0.3s; }
-.navbar .nav-links li a:hover { color:#dff3e0; }
-
-/* Hero Section */
-.hero {
-  height:100vh;
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  text-align:center;
-  padding-top:80px;
-}
-.hero h1 { font-size:3.5em; margin-bottom:20px; }
-.hero p { font-size:1.5em; margin-bottom:30px; }
-.btn-scroll {
-  padding:15px 40px;
-  background-color:#2d5730;
-  color:white;
-  border:none;
-  border-radius:8px;
-  font-size:1.2em;
-  cursor:pointer;
-  text-decoration:none;
-  transition:0.3s;
-}
-.btn-scroll:hover { background-color:#1e3d20; }
-
-/* Sections */
-.section {
-  padding:100px 20px;
-  text-align:center;
-  background-size:cover;
-  background-position:center;
-  position:relative;
-  color:white;
-}
-.section-content {
-  background-color: rgba(0,0,0,0.4);
-  display:inline-block;
-  padding:40px;
-  border-radius:15px;
-  max-width:900px;
-  margin:0 auto;
+/* Remove a estilização padrão de link dos cards */
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Mantém a cor original do texto */
+    display: block; /* Faz o link ocupar a área total */
+    transition: transform 0.3s ease;
 }
 
-/* Cards */
-.cards { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:40px; }
+/* Efeito visual ao passar o mouse (Hover) para guiar a atenção */
+.card-link:hover .card {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border-color: #2d5a27; /* Cor temática sugerida */
+}
+
+/* Garante que o card dentro do link se comporte bem */
 .card {
-  background-color:white;
-  color:#2d3e2d;
-  padding:25px;
-  border-radius:15px;
-  cursor:pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  flex:1 1 300px;
-}
-.card:hover { transform:translateY(-10px); box-shadow:0 10px 20px rgba(0,0,0,0.3);}
-.card.expanded { transform:scale(1.05); background-color:#e6f2e6; }
-
-/* News Cards */
-.news-cards { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; margin-top:40px; }
-.news-card {
-  background-color:#dff3e0;
-  padding:25px;
-  border-radius:15px;
-  flex:1 1 300px;
-  transition: transform 0.3s;
-}
-.news-card:hover { transform: translateY(-5px); box-shadow:0 5px 15px rgba(0,0,0,0.2); }
-
-/* Stats */
-.stats { display:flex; justify-content:center; gap:50px; margin-top:30px; }
-.stat h3 { font-size:2.5em; color:#4caf50; }
-.stat p { font-weight:bold; }
-
-/* Buttons */
-.btn-contact {
-  padding:15px 40px;
-  background-color:#4caf50;
-  color:white;
-  font-size:1.2em;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  transition:0.3s;
-}
-.btn-contact:hover { background-color:#45a049; }
-
-/* Footer */
-footer {
-  background-color:#2d3e2d;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
-footer a { color:#a8d5a8; text-decoration:none; }
-
-/* Responsivo */
-@media(max-width:768px){
-  .cards, .news-cards, .stats { flex-direction:column; gap:20px; }
-  .navbar { flex-direction:column; gap:10px; padding:15px; }
-  .navbar .nav-links { flex-direction:column; gap:10px; }
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    height: 100%; /* Garante que todos os cards tenham o mesmo tamanho no grid */
 }
