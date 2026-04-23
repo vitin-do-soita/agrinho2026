@@ -1,40 +1,24 @@
-// Cards expansíveis
-function toggleCard(card){
-  card.classList.toggle('expanded');
-}
-
-// Contadores animados
-function animateStat(id, target){
-  let count = 0;
-  const increment = Math.ceil(target/100);
-  const element = document.getElementById(id);
-  const interval = setInterval(()=>{
-    count += increment;
-    if(count >= target){
-      count = target;
-      clearInterval(interval);
+// Alterar estilo do Menu ao rolar a página
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        nav.style.padding = '10px 8%';
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+    } else {
+        nav.style.padding = '20px 8%';
+        nav.style.background = 'rgba(255, 255, 255, 0.9)';
     }
-    element.textContent = count;
-  },20);
-}
-
-// Inicializar contadores ao carregar a página
-window.addEventListener('load', ()=>{
-  animateStat('stat1', 1500);
-  animateStat('stat2', 45);
-  animateStat('stat3', 1200);
 });
 
-// Botão de contato
-function contatoAlert(){
-  alert('Obrigado por entrar em contato! Entraremos em breve.');
-}
+// Mensagem de Boas-vindas baseada no horário
+const greeting = () => {
+    const hour = new Date().getHours();
+    const heroP = document.querySelector('.hero p');
+    if (hour < 12) heroP.prepend("Bom dia! ");
+    else if (hour < 18) heroP.prepend("Boa tarde! ");
+    else heroP.prepend("Boa noite! ");
+};
 
-// Scroll suave para navbar
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', function(e){
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    target.scrollIntoView({behavior:'smooth'});
-  });
-});
+greeting();
+
+// Comentário: O script acima manipula o DOM para melhorar a UX (Experiência do Usuário)
