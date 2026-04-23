@@ -1,135 +1,51 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agro Forte - Futuro Sustentável</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <header>
-    <nav class="navbar">
-      <div class="logo">Agro Forte</div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#compromisso">Compromisso</a></li>
-        <li><a href="#areas">Áreas</a></li>
-        <li><a href="#projetos">Projetos</a></li>
-        <li><a href="#impacto">Impacto</a></li>
-        <li><a href="#noticias">Notícias</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-
-    <div id="home" class="hero">
-      <h1>Agro Forte</h1>
-      <p>Futuro Sustentável: equilíbrio entre produção e meio ambiente</p>
-      <a href="#compromisso" class="btn-scroll">Saiba Mais</a>
-    </div>
-  </header>
-
-  <main>
-    <!-- Compromisso -->
-    <section id="compromisso" class="section" style="background-image: url('https://images.unsplash.com/photo-1565120130282-6fa331b1c64d?auto=format&fit=crop&w=1600&q=80');">
-      <div class="section-content">
-        <h2>Nosso Compromisso</h2>
-        <p>Na Agro Forte, unimos produtividade e preservação ambiental, garantindo alimentos de qualidade e um planeta saudável para as próximas gerações.</p>
-      </div>
-    </section>
-
-    <!-- Áreas de Atuação -->
-    <section id="areas" class="section">
+<section id="areas" class="section">
       <h2>Áreas de Atuação</h2>
       <div class="cards">
-        <div class="card" onclick="toggleCard(this)">
-          <h3>Produção Sustentável</h3>
-          <p>Técnicas agrícolas que aumentam a produtividade sem degradar o solo.</p>
-        </div>
-        <div class="card" onclick="toggleCard(this)">
-          <h3>Energia Renovável</h3>
-          <p>Fontes limpas de energia para reduzir impactos ambientais.</p>
-        </div>
-        <div class="card" onclick="toggleCard(this)">
-          <h3>Conservação Ambiental</h3>
-          <p>Preservação de rios, florestas e biodiversidade.</p>
-        </div>
+        <a href="URL_AQUI" class="card-link">
+          <div class="card">
+            <h3>Produção Sustentável</h3>
+            <p>Técnicas agrícolas que aumentam a produtividade sem degradar o solo.</p>
+          </div>
+        </a>
+
+        <a href="URL_AQUI" class="card-link">
+          <div class="card">
+            <h3>Energia Renovável</h3>
+            <p>Fontes limpas de energia para reduzir impactos ambientais.</p>
+          </div>
+        </a>
+
+        <a href="URL_AQUI" class="card-link">
+          <div class="card">
+            <h3>Conservação Ambiental</h3>
+            <p>Preservação de rios, florestas e biodiversidade.</p>
+          </div>
+        </a>
       </div>
     </section>
 
-    <!-- Projetos -->
     <section id="projetos" class="section" style="background-color:#e6f2e6;">
       <h2>Projetos Recentes</h2>
       <div class="cards">
-        <div class="card">
-          <h3>Reflorestamento</h3>
-          <p>Plantio de 10.000 árvores nativas em áreas degradadas.</p>
-        </div>
-        <div class="card">
-          <h3>Horta Comunitária</h3>
-          <p>Incentivo à agricultura urbana sustentável em comunidades locais.</p>
-        </div>
-        <div class="card">
-          <h3>Energia Solar</h3>
-          <p>Implantação de painéis solares em propriedades rurais.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Impacto -->
-    <section id="impacto" class="section" style="background-image: url('https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1600&q=80');">
-      <div class="section-content">
-        <h2>Impacto em Números</h2>
-        <div class="stats">
-          <div class="stat">
-            <h3 id="stat1">0</h3>
-            <p>Hectares preservados</p>
+        <a href="URL_AQUI" class="card-link">
+          <div class="card">
+            <h3>Reflorestamento</h3>
+            <p>Plantio de 10.000 árvores nativas em áreas degradadas.</p>
           </div>
-          <div class="stat">
-            <h3 id="stat2">0</h3>
-            <p>Projetos sustentáveis</p>
+        </a>
+
+        <a href="URL_AQUI" class="card-link">
+          <div class="card">
+            <h3>Horta Comunitária</h3>
+            <p>Incentivo à agricultura urbana sustentável em comunidades locais.</p>
           </div>
-          <div class="stat">
-            <h3 id="stat3">0</h3>
-            <p>Energia renovável (MWh)</p>
+        </a>
+
+        <a href="URL_AQUI" class="card-link">
+          <div class="card">
+            <h3>Energia Solar</h3>
+            <p>Implantação de painéis solares em propriedades rurais.</p>
           </div>
-        </div>
+        </a>
       </div>
     </section>
-
-    <!-- Notícias -->
-    <section id="noticias" class="section">
-      <h2>Notícias Recentes</h2>
-      <div class="news-cards">
-        <div class="news-card">
-          <h3>Agro Sustentável em Alta</h3>
-          <p>Novas técnicas agrícolas sustentáveis ganham destaque no Brasil.</p>
-        </div>
-        <div class="news-card">
-          <h3>Energia Limpa no Campo</h3>
-          <p>Iniciativas solares e eólicas crescem nas propriedades rurais.</p>
-        </div>
-        <div class="news-card">
-          <h3>Preservação Ambiental</h3>
-          <p>Projetos de reflorestamento ajudam a reduzir impacto ambiental.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contato -->
-    <section id="contato" class="section" style="background-color:#dff3e0;">
-      <div class="section-content">
-        <h2>Junte-se a Nós</h2>
-        <p>Participe de nossos projetos e ajude a construir um futuro equilibrado!</p>
-        <button class="btn-contact" onclick="contatoAlert()">Contate-nos</button>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2026 Agro Forte | <a href="#">Contato</a></p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
