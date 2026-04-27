@@ -234,3 +234,40 @@ footer {
         margin: 15px 0;
     }
 }
+/* --- CORREÇÕES PARA O MODO ESCURO (NÍVEL 4) --- */
+
+/* Força o fundo da navegação a ficar escuro */
+.dark-mode header, 
+.dark-mode .navbar {
+    background-color: #1a1a1a !important; /* Cor grafite escura */
+    border-bottom: 1px solid #333;
+}
+
+/* Força os links do menu a ficarem brancos/claros */
+.dark-mode .nav-links a {
+    color: #f0f0f0 !important;
+}
+
+/* Mantém o destaque verde no modo escuro */
+.dark-mode .logo, 
+.dark-mode .logo strong {
+    color: #4caf50 !important;
+}
+
+/* Garante que o texto das seções que ficaram brancas mude */
+.dark-mode .section,
+.dark-mode .section h2,
+.dark-mode .section p {
+    color: #f0f0f0 !important;
+}
+
+/* Ajuste específico para o botão de tema no modo escuro */
+.dark-mode .theme-switcher {
+    border-color: #4caf50 !important;
+    color: #4caf50 !important;
+}
+
+/* Transição suave para atender ao critério de Usabilidade do Nível 4 */
+header, .navbar, a, body, .card {
+    transition: all 0.3s ease-in-out;
+}
