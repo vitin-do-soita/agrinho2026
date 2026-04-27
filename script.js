@@ -22,3 +22,16 @@ const greeting = () => {
 greeting();
 
 // Comentário: O script acima manipula o DOM para melhorar a UX (Experiência do Usuário)
+// --- Lógica do Modo Escuro ---
+const btnTheme = document.getElementById('toggle-dark-mode');
+
+if (btnTheme) {
+    btnTheme.addEventListener('click', () => {
+        // Alterna a classe dark-mode no elemento principal (html)
+        document.documentElement.classList.toggle('dark-mode');
+        
+        // Salva a preferência do usuário para não resetar ao atualizar a página
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+}
