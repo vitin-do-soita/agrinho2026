@@ -31,6 +31,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#areas">Atuação</a></li>
             <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#info">Dados</a></li>
             <li><a href="#contato">Contato</a></li>
             <li><button id="toggle-dark-mode" class="theme-switcher" aria-label="Alternar modo escuro">🌓</button></li>
         </ul>
@@ -38,7 +39,7 @@
 </header>
 
 <section id="home" class="hero">
-    <p id="boas-vindas" class="saudacao-js">Carregando...</p>
+    <p id="saudacao-texto" class="js-message">Carregando...</p>
     <h1>Agro Forte</h1>
     <p>O equilíbrio perfeito entre a produtividade e o respeito à terra.</p>
 </section>
@@ -96,10 +97,31 @@
         </div>
     </section>
 
-    <section id="videos" class="section">
-        <h2>Vídeos dos Projetos</h2>
-        <p>Acompanhe nossas ações em vídeo.</p>
+    <section id="info" class="section">
+        <h2>O Agro em Números</h2>
+        <p>A força que alimenta o mundo respeitando a natureza.</p>
         
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="info-icon">🚜</span>
+                <h3>+25%</h3>
+                <p>De aumento na produtividade com agricultura de precisão.</p>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">💧</span>
+                <h3>-40%</h3>
+                <p>De economia de água usando sistemas inteligentes.</p>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">🌳</span>
+                <h3>66%</h3>
+                <p>Do território brasileiro é preservado por produtores.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="section section-alt">
+        <h2>Vídeos dos Projetos</h2>
         <div class="cards-container">
             <div class="card">
                 <div class="video-responsive">
@@ -123,20 +145,31 @@
         </div>
     </section>
 
+    <section class="section">
+        <h2>Como você pode ajudar?</h2>
+        <ul class="dicas-lista">
+            <li><strong>Consuma Local:</strong> Apoie produtores da sua região.</li>
+            <li><strong>Evite o Desperdício:</strong> Planeje compras e aproveite alimentos integralmente.</li>
+            <li><strong>Educação:</strong> Compartilhe sobre tecnologia e meio ambiente.</li>
+        </ul>
+    </section>
+
     <section id="contato" class="section section-alt">
         <h2>Contato Sustentável</h2>
-        <p>Deixe seu nome para receber novidades do projeto.</p>
-        <div class="contato-form">
-            <input type="text" id="input-nome" placeholder="Seu nome aqui">
-            <button id="btn-enviar">Participar</button>
-            <p id="feedback-contato"></p>
+        <p>Insira seu nome para receber novidades sobre nossas ações.</p>
+        <div class="form-container">
+            <input type="text" id="user-name" placeholder="Seu Nome">
+            <button id="btn-participar">Participar</button>
+            <p id="feedback-msg"></p>
         </div>
     </section>
 </main>
 
 <footer>
     <p>&copy; 2026 Agro Forte - Todos os direitos reservados.</p>
-    <p style="font-size: 0.7rem; opacity: 0.7;">Imagens: Unsplash | Vídeos: YouTube | Tag: agrinho</p>
+    <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 10px;">
+        Imagens: Unsplash | Vídeos: YouTube | Tag: agrinho
+    </p>
 </footer>
 
 <script src="script.js"></script>
