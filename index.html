@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agro Forte - Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 </head>
 <body>
 
@@ -16,6 +25,7 @@
             <li><a href="#areas">Atuação</a></li>
             <li><a href="#projetos">Projetos</a></li>
             <li><a href="#contato">Contato</a></li>
+            <li><button id="toggle-dark-mode" class="theme-switcher" aria-label="Alternar modo escuro">🌓</button></li>
         </ul>
     </nav>
 </header>
@@ -31,9 +41,9 @@
         <p>Como transformamos o campo hoje.</p>
         
         <div class="cards-container">
-            <a href="https://www.brevant.com.br/blog/artigos/inteligencia-artificial-agricultura-de-precisao-para-um-agronegocio-mais-forte.html" class="card-link">
+            <a href="https://www.brevant.com.br/blog/artigos/inteligencia-artificial-agricultura-de-precisao-para-um-agronegocio-mais-forte.html" class="card-link" target="_blank">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Produção">
+                    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Produção Inteligente">
                     <div class="card-body">
                         <h3>Produção Inteligente</h3>
                         <p>Tecnologia de precisão para máxima colheita com mínimo impacto.</p>
@@ -41,9 +51,9 @@
                 </div>
             </a>
 
-            <a href="https://canalbioenergia.com.br/usinas-hibridas-de-energia-solar-e-biogas-ampliam-potencial-energetico-de-produtores-rurais/" class="card-link">
+            <a href="https://canalbioenergia.com.br/usinas-hibridas-de-energia-solar-e-biogas-ampliam-potencial-energetico-de-produtores-rurais/" class="card-link" target="_blank">
                 <div class="card">
-                    <img src="https://media.gazetadopovo.com.br/2021/09/06150915/O-potencial-energ%C3%A9tico-brasileiro-do-biog%C3%A1s-e-do-biometano-%C3%A9-de-mais-de-100-milh%C3%B5es-de-m%C2%B3-de-g%C3%A1s-por-dia.-960x540.jpg" class="card-img" alt="Energia">
+                    <img src="https://media.gazetadopovo.com.br/2021/09/06150915/O-potencial-energ%C3%A9tico-brasileiro-do-biog%C3%A1s-e-do-biometano-%C3%A9-de-mais-de-100-milh%C3%B5es-de-m%C2%B3-de-g%C3%A1s-por-dia.-960x540.jpg" class="card-img" alt="Matriz Limpa">
                     <div class="card-body">
                         <h3>Matriz Limpa</h3>
                         <p>Uso de biogás e energia solar em 100% da operação.</p>
@@ -53,12 +63,12 @@
         </div>
     </section>
 
-    <section id="projetos" class="section" style="background-color: #f0f4f0;">
+    <section id="projetos" class="section section-alt">
         <h2>Projetos em Campo</h2>
         <div class="cards-container">
-            <a href="https://www.idrparana.pr.gov.br/Noticia/Mata-ciliar-aumenta-12-no-Parana-com-protecao-de-nascentes-e-plantio-de-mudas" class="card-link">
+            <a href="https://www.idrparana.pr.gov.br/Noticia/Mata-ciliar-aumenta-12-no-Parana-com-protecao-de-nascentes-e-plantio-de-mudas" class="card-link" target="_blank">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Reflorestamento">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Operação Reverdecer">
                     <div class="card-body">
                         <h3>Operação Reverdecer</h3>
                         <p>Recuperação de nascentes e matas ciliares locais.</p>
@@ -66,9 +76,9 @@
                 </div>
             </a>
 
-            <a href="https://querobolsa.com.br/revista/horta-escolar" class="card-link">
+            <a href="https://querobolsa.com.br/revista/horta-escolar" class="card-link" target="_blank">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Horta">
+                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Horta Escola">
                     <div class="card-body">
                         <h3>Horta Escola</h3>
                         <p>Educação agrícola sustentável para comunidades vizinhas.</p>
@@ -76,33 +86,39 @@
                 </div>
             </a>
         </div>
-   <section id="videos" class="section">
-    <h2>Vídeos dos Projetos</h2>
-    <p>Acompanhe nossas ações em vídeo.</p>
-    
-    <div class="cards-container">
-        <div class="card">
-            <div class="video-responsive">
-                <iframe width="100%" height="200" src="https://www.youtube.com/embed/z8R_ZCxJel8" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="card-body">
-                <h3>Bastidores Reverdecer</h3>
-                <p>Veja o progresso da recuperação das nossas nascentes.</p>
-            </div>
-        </div>
+    </section>
 
-        <div class="card">
-            <div class="video-responsive">
-                <iframe width="100%" height="200" src="https://www.youtube.com/embed/epYOBQKgbF8" frameborder="0" allowfullscreen></iframe>
+    <section id="videos" class="section">
+        <h2>Vídeos dos Projetos</h2>
+        <p>Acompanhe nossas ações em vídeo.</p>
+        
+        <div class="cards-container">
+            <div class="card">
+                <div class="video-responsive">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/z8R_ZCxJel8" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                    <h3>Bastidores Reverdecer</h3>
+                    <p>Veja o progresso da recuperação das nossas nascentes.</p>
+                </div>
             </div>
-            <div class="card-body">
-                <h3>Impacto Social</h3>
-                <p>O dia a dia das crianças no projeto Horta Escola.</p>
+
+            <div class="card">
+                <div class="video-responsive">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/epYOBQKgbF8" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-body">
+                    <h3>Impacto Social</h3>
+                    <p>O dia a dia das crianças no projeto Horta Escola.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </main>
+
+<footer>
+    <p>&copy; 2026 Agro Forte - Todos os direitos reservados.</p>
+</footer>
 
 <script src="script.js"></script>
 </body>
