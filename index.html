@@ -36,9 +36,9 @@
         </ul>
     </nav>
 </header>
-</header>
 
 <section id="home" class="hero">
+    <p id="boas-vindas" class="saudacao-js">Carregando...</p>
     <h1>Agro Forte</h1>
     <p>O equilíbrio perfeito entre a produtividade e o respeito à terra.</p>
 </section>
@@ -103,7 +103,7 @@
         <div class="cards-container">
             <div class="card">
                 <div class="video-responsive">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/z8R_ZCxJel8" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/z8R_ZCxJel8" title="Vídeo Reverdecer" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                     <h3>Bastidores Reverdecer</h3>
@@ -113,7 +113,7 @@
 
             <div class="card">
                 <div class="video-responsive">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/epYOBQKgbF8" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/epYOBQKgbF8" title="Vídeo Impacto Social" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div class="card-body">
                     <h3>Impacto Social</h3>
@@ -122,10 +122,21 @@
             </div>
         </div>
     </section>
+
+    <section id="contato" class="section section-alt">
+        <h2>Contato Sustentável</h2>
+        <p>Deixe seu nome para receber novidades do projeto.</p>
+        <div class="contato-form">
+            <input type="text" id="input-nome" placeholder="Seu nome aqui">
+            <button id="btn-enviar">Participar</button>
+            <p id="feedback-contato"></p>
+        </div>
+    </section>
 </main>
 
 <footer>
     <p>&copy; 2026 Agro Forte - Todos os direitos reservados.</p>
+    <p style="font-size: 0.7rem; opacity: 0.7;">Imagens: Unsplash | Vídeos: YouTube | Tag: agrinho</p>
 </footer>
 
 <script src="script.js"></script>
