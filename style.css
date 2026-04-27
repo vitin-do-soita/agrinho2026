@@ -192,3 +192,45 @@ footer {
     text-align: center;
     border-top: 1px solid rgba(0,0,0,0.1);
 }
+/* Estilo das 3 barrinhas */
+.menu-toggle {
+    display: none; /* Escondido no PC */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-main);
+    transition: 0.3s;
+}
+
+/* Responsividade (Para telas de até 768px) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Aparece no Celular */
+    }
+
+    .nav-links {
+        display: none; /* Esconde os links por padrão */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Ajuste conforme a altura da sua navbar */
+        left: 0;
+        background-color: var(--navbar-bg);
+        text-align: center;
+        padding: 20px 0;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.active {
+        display: flex; /* Mostra quando clicado */
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+}
