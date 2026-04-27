@@ -35,3 +35,17 @@ if (btnTheme) {
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 }
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+// Abre/Fecha o menu ao clicar nas barrinhas
+mobileMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Fecha o menu automaticamente ao clicar em um link (opcional, mas recomendado)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
