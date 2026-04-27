@@ -84,3 +84,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Comentário Técnico: O script acima gerencia o estado da UI, 
 // processa variáveis de tempo e entrada de usuário via DOM.
+// Efeito de revelação ao rolar a página (Scroll Reveal)
+const observarScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+}, { threshold: 0.1 });
+
+// Aplica o efeito nos itens de informação
+document.querySelectorAll('.info-item').forEach(item => {
+    item.style.opacity = "0";
+    item.style.transform = "translateY(20px)";
+    item.style.transition = "all 0.6s ease-out";
+    observarScroll.observe(item);
+});
