@@ -312,3 +312,38 @@ footer {
     border-radius: 0 10px 10px 0;
     box-shadow: var(--shadow);
 }
+.expandable-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    transition: all 0.3s ease;
+}
+
+.expand-btn {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.expand-btn:hover {
+    background-color: #2a6e2c; /* Tom mais escuro do verde */
+}
+
+.expand-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    margin-top: 10px;
+}
+
+.expandable-card.active .expand-content {
+    max-height: 500px; /* ou auto, mas para transição suave prefira um valor fixo aproximado */
+}
