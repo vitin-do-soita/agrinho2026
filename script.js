@@ -103,17 +103,3 @@ document.querySelectorAll('.info-item').forEach(item => {
 });
 <script>
     const expandButtons = document.querySelectorAll('.expand-btn');
-
-    expandButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const card = button.parentElement;
-            card.classList.toggle('active');
-
-            if(card.classList.contains('active')){
-                button.textContent = 'Ver Menos';
-            } else {
-                button.textContent = 'Ver Mais';
-            }
-        });
-    });
-</script>
