@@ -426,7 +426,7 @@ footer {
     to {transform: scale(0.7); opacity: 0;}
 }
 /* ==============================
-   Seção Como Ajudar - Cards
+   Seção Como Ajudar - Cards Lado a Lado
    ============================== */
 .como-ajudar {
     padding: 60px 20px;
@@ -455,13 +455,13 @@ footer {
 }
 
 .cards-grid .card {
-    display: block;
-    text-decoration: none;
-    color: inherit;
+    background-color: #fff;
     border-radius: 12px;
     overflow: hidden;
-    background-color: #fff;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    padding-bottom: 20px;
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -470,12 +470,7 @@ footer {
     box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 }
 
-.cards-grid .card figure {
-    margin: 0;
-    position: relative;
-}
-
-.cards-grid .card figure img {
+.cards-grid .card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
@@ -483,59 +478,33 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.cards-grid .card:hover figure img {
+.cards-grid .card:hover img {
     transform: scale(1.05);
 }
 
-.cards-grid .card figure figcaption {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(0,0,0,0.5);
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-}
-
-.cards-grid .card-content {
-    padding: 20px;
-}
-
-.cards-grid .card-content h3 {
-    margin: 0 0 10px 0;
+.cards-grid .card h3 {
+    margin: 15px 0 10px 0;
     font-size: 1.3rem;
 }
 
-.cards-grid .card-content p {
+.cards-grid .card p {
     font-size: 0.95rem;
     color: #555;
+    padding: 0 15px;
     line-height: 1.4;
 }
 
-.cards-grid .card-content .card-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: bold;
-    color: #2a7f62;
-    transition: color 0.3s ease;
-}
-
-.cards-grid .card-content .card-link:hover {
-    color: #145235;
-}
-
-/* Responsividade extra */
+/* Responsividade */
 @media (max-width: 600px) {
-    .cards-grid .card figure img {
+    .cards-grid .card img {
         height: 150px;
     }
 
-    .cards-grid .card-content h3 {
+    .cards-grid .card h3 {
         font-size: 1.1rem;
     }
 
-    .cards-grid .card-content p {
+    .cards-grid .card p {
         font-size: 0.9rem;
     }
 }
