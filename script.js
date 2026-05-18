@@ -30,6 +30,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. MODO ESCURO ---
     const btnTheme = document.getElementById('toggle-dark-mode');
+
+    // 3.a Inicializa o tema salvo
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        if (btnTheme) btnTheme.innerText = '☀️';
+    } else {
+        if (btnTheme) btnTheme.innerText = '🌓';
+    }
+
+    // 3.b Listener do botão
     if (btnTheme) {
         btnTheme.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark-mode');
@@ -102,6 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// --- 8. MODAIS ---
 function openModal(id) {
     const modal = document.getElementById(id);
     modal.style.display = 'block';
