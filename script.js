@@ -143,3 +143,56 @@ window.onclick = function(event) {
         }
     });
 }
+// =============================
+// Cards "Como Ajudar" - Modal
+// =============================
+
+// Seleciona todos os cards da seção
+const comoAjudarCards = document.querySelectorAll('.como-ajudar .card');
+
+// Cria modal dinâmico
+const modalContainer = document.createElement('div');
+modalContainer.id = 'card-modal';
+modalContainer.classList.add('modal');
+modalContainer.style.display = 'none';
+modalContainer.innerHTML = `
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-img" src="" alt="" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:15px;">
+        <h3 id="modal-title"></h3>
+        <p id="modal-desc"></p>
+    </div>
+`;
+document.body.appendChild(modalContainer);
+
+const modal = document.getElementById('card-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalDesc = document.getElementById('modal-desc');
+const modalImg = document.getElementById('modal-img');
+const modalClose = modal.querySelector('.close');
+
+// Função para abrir modal
+comoAjudarCards.forEach(card => {
+    card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const imgSrc = card.querySelector('img').src;
+        const title = card.querySelector('h3').textContent;
+        const desc = card.querySelector('p').textContent;
+
+        modalImg.src = imgSrc;
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+
+        modal.style.display = 'block';
+    });
+});
+
+// Fechar modal ao clicar no X
+modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Fechar modal ao clicar fora do conteúdo
+window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+});
