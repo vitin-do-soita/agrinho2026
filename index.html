@@ -94,28 +94,67 @@
             </div>
         </section>
 
-        <!-- Seção Agro em Números -->
-        <section id="info" class="section">
-            <h2>O Agro em Números</h2>
-            <p>A força que alimenta o mundo respeitando a natureza.</p>
-            <div class="info-grid">
-                <div class="info-item">
-                    <span class="info-icon">🚜</span>
-                    <h3>+25%</h3>
-                    <p>De aumento na produtividade com agricultura de precisão.</p>
-                </div>
-                <div class="info-item">
-                    <span class="info-icon">💧</span>
-                    <h3>-40%</h3>
-                    <p>De economia de água usando sistemas inteligentes.</p>
-                </div>
-                <div class="info-item">
-                    <span class="info-icon">🌳</span>
-                    <h3>66%</h3>
-                    <p>Do território brasileiro é preservado por produtores.</p>
-                </div>
+        <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro em Números</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Seção Agro em Números -->
+    <section id="info" class="section">
+        <h2>O Agro em Números</h2>
+        <p>A força que alimenta o mundo respeitando a natureza.</p>
+        <div class="info-grid">
+            <div class="info-item" onclick="openModal('produtividade')">
+                <span class="info-icon">🚜</span>
+                <h3>+25%</h3>
+                <p>De aumento na produtividade com agricultura de precisão.</p>
             </div>
-        </section>
+            <div class="info-item" onclick="openModal('agua')">
+                <span class="info-icon">💧</span>
+                <h3>-40%</h3>
+                <p>De economia de água usando sistemas inteligentes.</p>
+            </div>
+            <div class="info-item" onclick="openModal('preservacao')">
+                <span class="info-icon">🌳</span>
+                <h3>66%</h3>
+                <p>Do território brasileiro é preservado por produtores.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modais -->
+    <div id="produtividade" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('produtividade')">&times;</span>
+            <h3>Produtividade</h3>
+            <p>A agricultura de precisão aumentou a produtividade em mais de 25%, permitindo maior eficiência e menor desperdício de recursos.</p>
+        </div>
+    </div>
+
+    <div id="agua" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('agua')">&times;</span>
+            <h3>Economia de Água</h3>
+            <p>Sistemas inteligentes reduziram o consumo de água em 40%, contribuindo para a sustentabilidade e preservação ambiental.</p>
+        </div>
+    </div>
+
+    <div id="preservacao" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('preservacao')">&times;</span>
+            <h3>Preservação</h3>
+            <p>66% do território brasileiro é preservado graças a práticas sustentáveis dos produtores rurais.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
         <!-- Seção Vídeos -->
         <section id="videos" class="section section-alt">
