@@ -425,3 +425,117 @@ footer {
     from {transform: scale(1); opacity: 1;}
     to {transform: scale(0.7); opacity: 0;}
 }
+/* ==============================
+   Seção Como Ajudar - Cards
+   ============================== */
+.como-ajudar {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+}
+
+.como-ajudar .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.como-ajudar .section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards-grid .card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards-grid .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.cards-grid .card figure {
+    margin: 0;
+    position: relative;
+}
+
+.cards-grid .card figure img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.cards-grid .card:hover figure img {
+    transform: scale(1.05);
+}
+
+.cards-grid .card figure figcaption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.cards-grid .card-content {
+    padding: 20px;
+}
+
+.cards-grid .card-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+}
+
+.cards-grid .card-content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.cards-grid .card-content .card-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2a7f62;
+    transition: color 0.3s ease;
+}
+
+.cards-grid .card-content .card-link:hover {
+    color: #145235;
+}
+
+/* Responsividade extra */
+@media (max-width: 600px) {
+    .cards-grid .card figure img {
+        height: 150px;
+    }
+
+    .cards-grid .card-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .cards-grid .card-content p {
+        font-size: 0.9rem;
+    }
+}
