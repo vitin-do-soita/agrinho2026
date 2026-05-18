@@ -284,6 +284,13 @@ footer {
     background: var(--bg-card);
     border-radius: 15px;
     box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-item:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
 .info-icon {
@@ -295,6 +302,11 @@ footer {
 .info-item h3 {
     font-size: 2rem;
     color: var(--primary);
+}
+
+.info-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
 /* Lista de Dicas */
@@ -330,7 +342,7 @@ footer {
 }
 
 .expandable-card.collapsed {
-    max-height: 120px; /* altura inicial do resumo */
+    max-height: 120px;
     cursor: pointer;
 }
 
@@ -348,64 +360,10 @@ footer {
 .expand-btn:hover {
     background-color: #2a6b2a;
 }
-/* ====== Estilo do Grid ====== */
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    color: #333;
-}
 
-.section {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-    color: #2d6a4f;
-}
-
-p {
-    font-size: 1rem;
-    color: #555;
-}
-
-.info-grid {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.info-item {
-    background: linear-gradient(145deg, #e6f7f1, #c9f0e2);
-    padding: 25px;
-    border-radius: 16px;
-    flex: 1;
-    min-width: 220px;
-    max-width: 260px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-}
-
-.info-item:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-}
-
-.info-icon {
-    font-size: 2.5rem;
-    display: block;
-    margin-bottom: 15px;
-}
-
-/* ====== Modais ====== */
+/* =========================================
+   10. MODAIS
+   ========================================= */
 .modal {
     display: none;
     position: fixed;
@@ -420,7 +378,8 @@ p {
 }
 
 .modal-content {
-    background: #fff;
+    background: var(--bg-card);
+    color: var(--text-main);
     margin: 8% auto;
     padding: 30px 20px;
     border-radius: 18px;
@@ -449,7 +408,9 @@ p {
     color: #d9534f;
 }
 
-/* ====== Animações ====== */
+/* =========================================
+   11. ANIMAÇÕES
+   ========================================= */
 @keyframes fadeIn {
     from {background: rgba(0,0,0,0);}
     to {background: rgba(0,0,0,0.6);}
