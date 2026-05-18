@@ -102,3 +102,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+function openModal(id) {
+    const modal = document.getElementById(id);
+    modal.style.display = 'block';
+
+    const content = modal.querySelector('.modal-content');
+    content.style.animation = 'zoomIn 0.4s forwards';
+}
+
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    const content = modal.querySelector('.modal-content');
+
+    // animação de saída
+    content.style.animation = 'zoomOut 0.3s forwards';
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+// Fechar modal ao clicar fora da caixa
+window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if(event.target == modal) {
+            closeModal(modal.id);
+        }
+    });
+}
