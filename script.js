@@ -1,5 +1,5 @@
 /* ============================================================
-   PROJETO AGRO FORTE - LÓGICA COMPLETA E CORRIGIDA (SEM TRAVAMENTOS)
+   PROJETO AGRO FORTE - LÓGICA COMPLETA FINAL (100% CORRIGIDA)
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -97,23 +97,10 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.transition = "all 0.6s ease-out";
         observarScroll.observe(item);
     });
-
-    // --- 7. CARTÕES EXPANDÍVEIS ---
-    const expandButtons = document.querySelectorAll('.expand-btn');
-    expandButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const card = btn.closest('.expandable-card');
-            if (card) {
-                card.classList.toggle('collapsed');
-                btn.innerText = card.classList.contains('collapsed') ? "Ver Mais" : "Ver Menos";
-            }
-        });
-    });
-
 });
 
 // ============================================================
-// 8. CONTROLE DOS MODAIS PADRÃO (PRODUTIVIDADE, ÁGUA, PRESERVAÇÃO)
+// 7. CONTROLE DOS MODAIS PADRÃO (PRODUTIVIDADE, ÁGUA, PRESERVAÇÃO)
 // ============================================================
 function openModal(id) {
     const modal = document.getElementById(id);
@@ -121,7 +108,7 @@ function openModal(id) {
         modal.style.display = 'block';
         const content = modal.querySelector('.modal-content');
         if (content) {
-            content.style.animation = 'zoomIn 0.4s forwards'; // Dispara animação do CSS
+            content.style.animation = 'zoomIn 0.4s forwards';
         }
     }
 }
@@ -131,8 +118,7 @@ function closeModal(id) {
     if (modal) {
         const content = modal.querySelector('.modal-content');
         if (content) {
-            content.style.animation = 'zoomOut 0.3s forwards'; // Dispara animação de saída do CSS
-            // Aguarda a animação terminar antes de ocultar o display totalmente
+            content.style.animation = 'zoomOut 0.3s forwards';
             setTimeout(() => {
                 modal.style.display = 'none';
             }, 300);
@@ -143,10 +129,10 @@ function closeModal(id) {
 }
 
 // ============================================================
-// 9. LÓGICA DO MODAL DINÂMICO ("COMO AJUDAR")
+// 8. LÓGICA DO MODAL DINÂMICO ("COMO AJUDAR")
 // ============================================================
 
-// Injeta o HTML estruturado do modal dinâmico no final do Body
+// Injeta o HTML do modal estruturado dinamicamente no final da página
 const modalContainer = document.createElement('div');
 modalContainer.id = 'card-modal';
 modalContainer.classList.add('modal');
@@ -167,22 +153,20 @@ const modalDesc = document.getElementById('modal-desc');
 const modalImg = document.getElementById('modal-img');
 const modalClose = ajudaModal.querySelector('.close');
 
-// Evento para abrir o modal quando clicar em qualquer Card de ajuda
+// Captura cliques nos cards de ajuda impedindo conflito com links externos
 document.querySelectorAll('.cards-grid .card').forEach(card => {
     card.addEventListener('click', (e) => {
         e.preventDefault();
+        e.stopPropagation(); // 🌟 ESSENCIAL: Impede a window de fechar o modal no exato instante em que abre!
         
-        // Pega as informações de dentro do card clicado
         const imgSrc = card.querySelector('img').src;
         const title = card.querySelector('h3').textContent;
         const desc = card.querySelector('p').textContent;
 
-        // Alimenta o conteúdo do modal dinâmico
         modalImg.src = imgSrc;
         modalTitle.textContent = title;
         modalDesc.textContent = desc;
 
-        // Exibe o modal na tela redefinindo a animação inicial limpa
         ajudaModal.style.display = 'block';
         const content = ajudaModal.querySelector('.modal-content');
         if (content) {
@@ -191,9 +175,10 @@ document.querySelectorAll('.cards-grid .card').forEach(card => {
     });
 });
 
-// Evento para fechar o modal dinâmico pelo botão 'X'
+// Fechar modal dinâmico clicando no 'X'
 if (modalClose) {
-    modalClose.addEventListener('click', () => {
+    modalClose.addEventListener('click', (e) => {
+        e.stopPropagation();
         const content = ajudaModal.querySelector('.modal-content');
         if (content) {
             content.style.animation = 'zoomOut 0.3s forwards';
@@ -207,12 +192,11 @@ if (modalClose) {
 }
 
 // ============================================================
-// 10. FECHAMENTO GLOBAL - DETECTAR CLIQUE FORA DO CONTEÚDO
+// 9. EVENTO GLOBAL DE CLIQUE NA JANELA (FECHAR AO CLICAR FORA)
 // ============================================================
 window.addEventListener('click', (e) => {
-    // Se o elemento clicado possuir a classe 'modal' (o fundo escuro)
+    // Se clicou na área escura de fundo do modal
     if (e.target.classList.contains('modal')) {
-        // Dispara a função correta de fechar que limpa as animações do CSS
         if (e.target.id === 'card-modal') {
             const content = ajudaModal.querySelector('.modal-content');
             if (content) {
@@ -224,6 +208,7 @@ window.addEventListener('click', (e) => {
                 ajudaModal.style.display = 'none';
             }
         } else {
+            // Se clicou fora nos modais normais (Produtividade, Água, Preservação)
             closeModal(e.target.id);
         }
     }
