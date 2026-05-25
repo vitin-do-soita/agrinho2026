@@ -1,5 +1,5 @@
 /* ============================================================
-   PROJETO AGRO FORTE - LÓGICA COMPLETA (NÍVEL 4)
+   PROJETO AGRO FORTE - LÓGICA COMPLETA CORRIGIDA
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 3. MODO ESCURO ---
     const btnTheme = document.getElementById('toggle-dark-mode');
 
-    // 3.a Inicializa o tema salvo
+    // 3.a Inicializa o tema salv0
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
         document.documentElement.classList.add('dark-mode');
@@ -114,67 +114,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// --- 8. MODAIS ---
+// --- 8. MODAIS PADRÃO (PRODUTIVIDADE, ÁGUA, PRESERVAÇÃO) ---
 function openModal(id) {
     const modal = document.getElementById(id);
-    modal.style.display = 'block';
-
-    const content = modal.querySelector('.modal-content');
-    content.style.animation = 'zoomIn 0.4s forwards';
+    if (modal) {
+        modal.style.display = 'block';
+        const content = modal.querySelector('.modal-content');
+        if (content) content.style.animation = 'zoomIn 0.4s forwards';
+    }
 }
 
 function closeModal(id) {
     const modal = document.getElementById(id);
-    const content = modal.querySelector('.modal-content');
-
-    // animação de saída
-    content.style.animation = 'zoomOut 0.3s forwards';
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
-}
-
-// Fechar modal ao clicar fora da caixa
-window.onclick = function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(modal => {
-        if(event.target == modal) {
-            closeModal(modal.id);
+    if (modal) {
+        const content = modal.querySelector('.modal-content');
+        if (content) {
+            content.style.animation = 'zoomOut 0.3s forwards';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        } else {
+            modal.style.display = 'none';
         }
-    });
-}
-// =============================
-// Cards "Como Ajudar" - Modal
-// =============================
-
-// Seleciona todos os cards da seção
-const comoAjudarCards = document.querySelectorAll('.como-ajudar .card');
-
-// Cria modal dinâmico se ele ainda não existir
-let modal = document.getElementById('card-modal');
-if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'card-modal';
-    modal.classList.add('modal');
-    modal.style.display = 'none';
-    modal.innerHTML = `
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modal-img" src="" alt="" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:15px;">
-            <h3 id="modal-title"></h3>
-            <p id="modal-desc"></p>
-        </div>
-    `;
-    document.body.appendChild(modal);
+    }
 }
 
+// ============================================================
+// 9. CARDS "COMO AJUDAR" - MODAL DINÂMICO
+// ============================================================
+
+// Cria o modal único para os cards de ajuda assim que o script carrega
+const modalContainer = document.createElement('div');
+modalContainer.id = 'card-modal';
+modalContainer.classList.add('modal');
+modalContainer.style.display = 'none';
+modalContainer.innerHTML = `
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <img id="modal-img" src="" alt="" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:15px;">
+        <h3 id="modal-title"></h3>
+        <p id="modal-desc"></p>
+    </div>
+`;
+document.body.appendChild(modalContainer);
+
+const ajudaModal = document.getElementById('card-modal');
 const modalTitle = document.getElementById('modal-title');
 const modalDesc = document.getElementById('modal-desc');
 const modalImg = document.getElementById('modal-img');
-const modalClose = modal.querySelector('.close');
+const modalClose = ajudaModal.querySelector('.close');
 
-// Função para abrir modal ao clicar no card
-comoAjudarCards.forEach(card => {
+// Configura o clique para abrir o modal dinâmico
+document.querySelectorAll('.como-ajudar .card').forEach(card => {
     card.addEventListener('click', (e) => {
         e.preventDefault();
         const imgSrc = card.querySelector('img').src;
@@ -185,31 +176,31 @@ comoAjudarCards.forEach(card => {
         modalTitle.textContent = title;
         modalDesc.textContent = desc;
 
-        modal.style.display = 'block';
-        // Remove qualquer travamento de animação residual
-        const content = modal.querySelector('.modal-content');
-        if (content) content.style.animation = 'none'; 
+        ajudaModal.style.display = 'block';
+        const content = ajudaModal.querySelector('.modal-content');
+        if (content) content.style.animation = 'none'; // Sem conflito de animação externa
     });
 });
 
-// Fechar o modal dinâmico ao clicar no 'X'
+// Fecha o modal dinâmico no botão 'X'
 if (modalClose) {
     modalClose.addEventListener('click', () => {
-        modal.style.display = 'none';
+        ajudaModal.style.display = 'none';
     });
 }
 
-// O ÚNICO OUVINTE GLOBAL PARA FECHAR CLICANDO FORA (Gerencia todos os modais da página com segurança)
+// ============================================================
+// 10. EVENTO GLOBAL DE CLIQUE NA JANELA (FECHAR FORA)
+// ============================================================
 window.addEventListener('click', (e) => {
+    // Se clicou no fundo escuro de qualquer modal
     if (e.target.classList.contains('modal')) {
-        const modalId = e.target.id;
-        
-        // Se for o modal do "Como Ajudar" (dinâmico), fecha direto sem quebrar animações
-        if (modalId === 'card-modal') {
+        if (e.target.id === 'card-modal') {
+            // Se for o modal do "Como Ajudar", fecha direto de forma limpa
             e.target.style.display = 'none';
         } else {
-            // Se forem os modais normais (produtividade, agua, preservacao), usa a sua função com animação
-            closeModal(modalId);
+            // Se forem os modais do "Agro em Números", roda a sua animação padrão
+            closeModal(e.target.id);
         }
     }
 });
