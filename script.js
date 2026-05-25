@@ -150,28 +150,30 @@ window.onclick = function(event) {
 // Seleciona todos os cards da seção
 const comoAjudarCards = document.querySelectorAll('.como-ajudar .card');
 
-// Cria modal dinâmico
-const modalContainer = document.createElement('div');
-modalContainer.id = 'card-modal';
-modalContainer.classList.add('modal');
-modalContainer.style.display = 'none';
-modalContainer.innerHTML = `
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <img id="modal-img" src="" alt="" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:15px;">
-        <h3 id="modal-title"></h3>
-        <p id="modal-desc"></p>
-    </div>
-`;
-document.body.appendChild(modalContainer);
+// Cria modal dinâmico se ele ainda não existir
+let modal = document.getElementById('card-modal');
+if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'card-modal';
+    modal.classList.add('modal');
+    modal.style.display = 'none';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:15px;">
+            <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
 
-const modal = document.getElementById('card-modal');
 const modalTitle = document.getElementById('modal-title');
 const modalDesc = document.getElementById('modal-desc');
 const modalImg = document.getElementById('modal-img');
 const modalClose = modal.querySelector('.close');
 
-// Função para abrir modal
+// Função para abrir modal ao clicar no card
 comoAjudarCards.forEach(card => {
     card.addEventListener('click', (e) => {
         e.preventDefault();
@@ -184,14 +186,30 @@ comoAjudarCards.forEach(card => {
         modalDesc.textContent = desc;
 
         modal.style.display = 'block';
+        // Remove qualquer travamento de animação residual
+        const content = modal.querySelector('.modal-content');
+        if (content) content.style.animation = 'none'; 
     });
 });
 
-// Substitua o seu window.addEventListener por este:
+// Fechar o modal dinâmico ao clicar no 'X'
+if (modalClose) {
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+}
+
+// O ÚNICO OUVINTE GLOBAL PARA FECHAR CLICANDO FORA (Gerencia todos os modais da página com segurança)
 window.addEventListener('click', (e) => {
-    // Verifica se o elemento clicado tem a classe 'modal' (o fundo escuro)
     if (e.target.classList.contains('modal')) {
-        // Altera o display do modal que foi clicado diretamente
-        e.target.style.display = 'none';
+        const modalId = e.target.id;
+        
+        // Se for o modal do "Como Ajudar" (dinâmico), fecha direto sem quebrar animações
+        if (modalId === 'card-modal') {
+            e.target.style.display = 'none';
+        } else {
+            // Se forem os modais normais (produtividade, agua, preservacao), usa a sua função com animação
+            closeModal(modalId);
+        }
     }
 });
