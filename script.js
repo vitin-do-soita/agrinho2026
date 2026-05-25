@@ -187,12 +187,11 @@ comoAjudarCards.forEach(card => {
     });
 });
 
-// Fechar modal ao clicar no X
-modalClose.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-// Fechar modal ao clicar fora do conteúdo
+// Substitua o seu window.addEventListener por este:
 window.addEventListener('click', (e) => {
-    if (e.target === modal) modal.style.display = 'none';
+    // Verifica se o elemento clicado tem a classe 'modal' (o fundo escuro)
+    if (e.target.classList.contains('modal')) {
+        // Altera o display do modal que foi clicado diretamente
+        e.target.style.display = 'none';
+    }
 });
