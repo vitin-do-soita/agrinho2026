@@ -213,3 +213,31 @@ window.addEventListener('click', (e) => {
         }
     }
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const btnAumentar = document.getElementById("btn-participar" ? document.getElementById("btn-aumentar") : null);
+    const btnDiminuir = document.getElementById("btn-diminuir");
+    
+    // Tamanho padrão inicial (100%)
+    let tamanhoAtual = 100; 
+    
+    // Limites para não quebrar o layout
+    const tamanhoMaximo = 140; 
+    const tamanhoMinimo = 80;   
+    const passo = 10; // Aumenta/diminui de 10 em 10%
+
+    if (btnAumentar && btnDiminuir) {
+        btnAumentar.addEventListener("click", () => {
+            if (tamanhoAtual < tamanhoMaximo) {
+                tamanhoAtual += passo;
+                document.documentElement.style.fontSize = `${tamanhoAtual}%`;
+            }
+        });
+
+        btnDiminuir.addEventListener("click", () => {
+            if (tamanhoAtual > tamanhoMinimo) {
+                tamanhoAtual -= passo;
+                document.documentElement.style.fontSize = `${tamanhoAtual}%`;
+            }
+        });
+    }
+});
