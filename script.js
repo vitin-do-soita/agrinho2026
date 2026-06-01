@@ -45,29 +45,34 @@ if (saudacaoTexto) {
 }
 
 // ===============================
-// DARK MODE (FUNCIONANDO)
+// DARK MODE (VERSÃO SEGURA)
 // ===============================
 
-const btnTheme = document.getElementById('toggle-dark-mode');
+document.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("toggle-dark-mode");
 
-// aplica tema salvo ao carregar a página
-(function () {
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
+    if (!btn) {
+        console.error("Botão dark mode não encontrado!");
+        return;
     }
-})();
 
-// alterna tema ao clicar no botão
-btnTheme.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark-mode');
+    // aplica tema salvo
+    const savedTheme = localStorage.getItem("theme");
 
-    if (document.documentElement.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-    } else {
-        localStorage.setItem('theme', 'light');
+    if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark-mode");
     }
+
+    // clique do botão
+    btn.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark-mode");
+
+        const isDark = document.documentElement.classList.contains("dark-mode");
+
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+
+        console.log("Tema atual:", isDark ? "dark" : "light");
+    });
 });
 // ============================================================
 // 4. MENU MOBILE
