@@ -36,7 +36,7 @@ if (saudacaoTexto) {
         mensagem = '🌱 Bom dia! ';
     } else if (hora < 18) {
         mensagem = '☀️ Boa tarde! ';
-    } else {
+    } else if (hora < 00) {
         mensagem = '🌙 Boa noite! ';
     }
 
