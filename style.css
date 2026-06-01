@@ -606,3 +606,17 @@ footer {
     margin-bottom: 10px;
     font-size: 1.2rem;
 }
+.font-switcher {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: inherit; /* Herda a cor do texto do menu atual */
+    transition: transform 0.2s ease;
+}
+
+.font-switcher:hover {
+    transform: scale(1.1);
+}
