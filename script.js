@@ -44,38 +44,31 @@ if (saudacaoTexto) {
         mensagem + 'Bem-vindo ao futuro sustentável.';
 }
 
-// ============================================================
-// 3. MODO ESCURO
-// ============================================================
+// ===============================
+// DARK MODE (FUNCIONANDO)
+// ===============================
+
 const btnTheme = document.getElementById('toggle-dark-mode');
 
-const temaSalvo = localStorage.getItem('theme');
+// aplica tema salvo ao carregar a página
+(function () {
+    const savedTheme = localStorage.getItem('theme');
 
-if (temaSalvo === 'dark') {
-    document.documentElement.classList.add('dark-mode');
-
-    if (btnTheme) {
-        btnTheme.textContent = '☀️';
+    if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
     }
-}
+})();
 
-if (btnTheme) {
-    btnTheme.addEventListener('click', () => {
+// alterna tema ao clicar no botão
+btnTheme.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark-mode');
 
-        document.documentElement.classList.toggle('dark-mode');
-
-        const modoEscuro =
-            document.documentElement.classList.contains('dark-mode');
-
-        localStorage.setItem(
-            'theme',
-            modoEscuro ? 'dark' : 'light'
-        );
-
-        btnTheme.textContent = modoEscuro ? '☀️' : '🌓';
-    });
-}
-
+    if (document.documentElement.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
 // ============================================================
 // 4. MENU MOBILE
 // ============================================================
