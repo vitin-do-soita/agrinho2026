@@ -233,10 +233,35 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        btnDiminuir.addEventListener("click", () => {
-            if (tamanhoAtual > tamanhoMinimo) {
-                tamanhoAtual -= passo;
-                document.documentElement.style.fontSize = `${tamanhoAtual}%`;
+// --- SISTEMA DE ACESSIBILIDADE: ALTERAR TAMANHO DA FONTE ---
+document.addEventListener("DOMContentLoaded", function () {
+    const btnAumentar = document.getElementById("btn-aumentar");
+    const btnDiminuir = document.getElementById("btn-diminuir");
+
+    // Define o tamanho inicial da fonte (100% ou 16px por padrão no navegador)
+    let tamanhoAtual = 100; 
+
+    // Função para atualizar o tamanho da fonte no elemento principal (html)
+    function atualizarFonte() {
+        document.documentElement.style.fontSize = tamanhoAtual + "%";
+    }
+
+    // Evento para aumentar a fonte (limite máximo de 140% para não quebrar o layout)
+    if (btnAumentar) {
+        btnAumentar.addEventListener("click", function () {
+            if (tamanhoAtual < 140) {
+                tamanhoAtual += 10; // Aumenta de 10% em 10%
+                atualizarFonte();
+            }
+        });
+    }
+
+    // Evento para diminuir a fonte (limite mínimo de 80%)
+    if (btnDiminuir) {
+        btnDiminuir.addEventListener("click", function () {
+            if (tamanhoAtual > 80) {
+                tamanhoAtual -= 10; // Diminui de 10% em 10%
+                atualizarFonte();
             }
         });
     }
