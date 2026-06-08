@@ -1,6 +1,6 @@
-/* =========================================
+
    1. VARIÁVEIS E TEMAS 
-   ========================================= */
+  
 :root {
     --bg-body: #ffffff;
     --bg-section-alt: #f4f7f4;
@@ -26,9 +26,9 @@
     --bg-color: #121212;
 }
 
-/* =========================================
+
    2. RESET E ESTILOS GERAIS
-   ========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -47,9 +47,9 @@ body {
     transition: background var(--transition-fast), color var(--transition-fast);
 }
 
-/* =========================================
+
    3. NAVEGAÇÃO
-   ========================================= */
+  
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -107,9 +107,9 @@ body {
     color: #fff;
 }
 
-/* =========================================
+
    4.  SAUDAÇÃO
-   ========================================= */
+   
 .hero {
     padding: 100px 5%;
     text-align: center;
@@ -123,9 +123,9 @@ body {
     font-size: 1.2rem;
 }
 
-/* =========================================
+
    5. SEÇÕES E CARDS
-   ========================================= */
+ 
 .section {
     padding: 80px 5%;
     text-align: center;
@@ -179,9 +179,9 @@ body {
     color: var(--text-muted);
 }
 
-/* =========================================
+
    6. FORMULÁRIO
-   ========================================= */
+  
 .form-container {
     margin-top: 30px;
     max-width: 500px;
@@ -220,9 +220,9 @@ input[type="text"] {
     font-weight: 500;
 }
 
-/* =========================================
+
    7. RESPONSIVIDADE
-   ========================================= */
+ 
 .menu-toggle {
     display: none;
     cursor: pointer;
@@ -260,9 +260,9 @@ input[type="text"] {
     #btn-participar { width: 100%; margin-left: 0; }
 }
 
-/* =========================================
+
    8. OUTROS ELEMENTOS
-   ========================================= */
+ 
 .dark-mode img {
     filter: brightness(0.8) contrast(1.1);
 }
@@ -328,9 +328,8 @@ footer {
     border-radius: 0 10px 10px 0;
     box-shadow: var(--shadow);
 }
-/* =========================================
    9. CARTÃO EXPANDÍVEL
-   ========================================= */
+  
 .expandable-card {
     background-color: var(--bg-card);
     border-radius: 12px;
@@ -362,9 +361,9 @@ footer {
     background-color: #2a6b2a;
 }
 
-/* =========================================
+
    10. MODAIS
-   ========================================= */
+   
 .modal {
     display: none;
     position: fixed;
@@ -409,9 +408,9 @@ footer {
     color: #d9534f;
 }
 
-/* =========================================
+
    11. ANIMAÇÕES
-   ========================================= */
+   
 @keyframes fadeIn {
     from { background: rgba(0,0,0,0); }
     to { background: rgba(0,0,0,0.6); }
@@ -427,9 +426,9 @@ footer {
     to { transform: scale(0.7); opacity: 0; }
 }
 
-/* =========================================
+
    12. COMO AJUDAR
-   ========================================= */
+   
 .como-ajudar {
     padding: 60px 20px;
     background-color: var(--bg-section-alt);
@@ -490,9 +489,9 @@ footer {
     color: var(--text-muted);
 }
 
-/* =========================================
+
    13. TIMELINE
-   ========================================= */
+ 
 .timeline {
     position: relative;
     max-width: 800px;
@@ -555,9 +554,9 @@ footer {
     font-size: 1.2rem;
 }
 
-/* =========================================
+
    14. Fontes
-   ========================================= */
+   
 .font-switcher {
     background: none;
     border: none;
