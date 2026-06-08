@@ -1,5 +1,5 @@
 
-   1. VARIÁVEIS E TEMAS 
+   /*1. VARIÁVEIS E TEMAS /*
   
 :root {
     --bg-body: #ffffff;
@@ -27,7 +27,7 @@
 }
 
 
-   2. RESET E ESTILOS GERAIS
+   /*2. RESET E ESTILOS GERAIS/*
 
 * {
     margin: 0;
@@ -48,7 +48,7 @@ body {
 }
 
 
-   3. NAVEGAÇÃO
+   /*3. NAVEGAÇÃO/*
   
 .navbar {
     display: flex;
@@ -108,7 +108,7 @@ body {
 }
 
 
-   4.  SAUDAÇÃO
+   /*4.  SAUDAÇÃO/*
    
 .hero {
     padding: 100px 5%;
@@ -124,7 +124,7 @@ body {
 }
 
 
-   5. SEÇÕES E CARDS
+   /*5. SEÇÕES E CARDS/*
  
 .section {
     padding: 80px 5%;
@@ -180,7 +180,7 @@ body {
 }
 
 
-   6. FORMULÁRIO
+   /*6. FORMULÁRIO/*
   
 .form-container {
     margin-top: 30px;
@@ -221,7 +221,7 @@ input[type="text"] {
 }
 
 
-   7. RESPONSIVIDADE
+   /*7. RESPONSIVIDADE/*
  
 .menu-toggle {
     display: none;
@@ -261,7 +261,7 @@ input[type="text"] {
 }
 
 
-   8. OUTROS ELEMENTOS
+   /*8. OUTROS ELEMENTOS/*
  
 .dark-mode img {
     filter: brightness(0.8) contrast(1.1);
@@ -328,7 +328,7 @@ footer {
     border-radius: 0 10px 10px 0;
     box-shadow: var(--shadow);
 }
-   9. CARTÃO EXPANDÍVEL
+   /*9. CARTÃO EXPANDÍVEL/*
   
 .expandable-card {
     background-color: var(--bg-card);
@@ -362,7 +362,7 @@ footer {
 }
 
 
-   10. MODAIS
+   /*10. MODAIS/*
    
 .modal {
     display: none;
@@ -409,7 +409,7 @@ footer {
 }
 
 
-   11. ANIMAÇÕES
+   /*11. ANIMAÇÕES/*
    
 @keyframes fadeIn {
     from { background: rgba(0,0,0,0); }
@@ -427,7 +427,7 @@ footer {
 }
 
 
-   12. COMO AJUDAR
+   /*12. COMO AJUDAR/*
    
 .como-ajudar {
     padding: 60px 20px;
@@ -490,7 +490,7 @@ footer {
 }
 
 
-   13. TIMELINE
+   /*13. TIMELINE/*
  
 .timeline {
     position: relative;
@@ -555,7 +555,7 @@ footer {
 }
 
 
-   14. Fontes
+   /*14. Fontes/*
    
 .font-switcher {
     background: none;
