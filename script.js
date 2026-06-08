@@ -1,5 +1,5 @@
 /* ============================================================
-   PROJETO AGRO FORTE - SCRIPT COMPLETO E CORRIGIDO (2026)
+   PROJETO AGRO FORTE 
    ============================================================ */
 
 // Funções Globais para os Modais do HTML (Devem ficar fora do DOMContentLoaded para o 'onclick' funcionar)
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 2. SAUDAÇÃO DINÂMICA (CORRIGIDA)
+    // 2. SAUDAÇÃO DINÂMICA 
     // ============================================================
     const saudacaoTexto = document.getElementById('saudacao-texto');
     if (saudacaoTexto) {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 3. DARK MODE (UNIFICADO E SEGURO)
+    // 3. DARK MODE
     // ============================================================
     const btnDarkMode = document.getElementById("toggle-dark-mode");
     if (btnDarkMode) {
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 6. ANIMAÇÃO DOS INFO-ITEMS (INTERSECTION OBSERVER)
+    // 6. ANIMAÇÃO DOS INFO-ITEMS 
     // ============================================================
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
