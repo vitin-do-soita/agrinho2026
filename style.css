@@ -1,5 +1,5 @@
 /* =========================================
-   1. VARIÁVEIS E TEMAS (Nível 4 - Usabilidade)
+   1. VARIÁVEIS E TEMAS 
    ========================================= */
 :root {
     --bg-body: #ffffff;
@@ -108,7 +108,7 @@ body {
 }
 
 /* =========================================
-   4. HERO E SAUDAÇÃO
+   4.  SAUDAÇÃO
    ========================================= */
 .hero {
     padding: 100px 5%;
@@ -261,7 +261,7 @@ input[type="text"] {
 }
 
 /* =========================================
-   8. FOOTER E OUTROS ELEMENTOS
+   8. OUTROS ELEMENTOS
    ========================================= */
 .dark-mode img {
     filter: brightness(0.8) contrast(1.1);
@@ -556,7 +556,7 @@ footer {
 }
 
 /* =========================================
-   14. FONT SWITCHER
+   14. Fontes
    ========================================= */
 .font-switcher {
     background: none;
