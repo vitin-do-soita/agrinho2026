@@ -1,29 +1,28 @@
-/* ============================================================
-   PROJETO AGRO FORTE 
-   ============================================================ */
+/* ==========================================================================
+   PROJETO AGRO FORTE - SCRIPT CONTROLADOR
+   ========================================================================== */
 
-// Funções Globais para os Modais do HTML (Devem ficar fora do DOMContentLoaded para o 'onclick' funcionar)
+// 1. FUNÇÕES GLOBAIS DE CONTROLE DOS MODAIS NA TAG <DIALOG>
+// Deixadas fora do DOMContentLoaded para que os seletores 'onclick' do HTML funcionem diretamente.
 function openModal(id) {
     const modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Evita rolar a página com modal aberto
+    if (modal && typeof modal.showModal === 'function') {
+        modal.showModal(); // Abre o pop-up nativo e centralizado pelo CSS
     }
 }
 
 function closeModal(id) {
     const modal = document.getElementById(id);
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Devolve o scroll da página
+    if (modal && typeof modal.close === 'function') {
+        modal.close(); // Fecha o pop-up nativamente limpando a tela
     }
 }
 
-// Inicialização de todos os seletores e eventos do DOM
+// Inicialização de todos os seletores e eventos internos do DOM
 document.addEventListener('DOMContentLoaded', () => {
 
     // ============================================================
-    // 1. CONFIGURAÇÃO DA NAVBAR AO ROLAR
+    // 2. CONFIGURAÇÃO DA NAVBAR AO ROLAR
     // ============================================================
     const nav = document.querySelector('.navbar');
     if (nav) {
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 2. SAUDAÇÃO DINÂMICA 
+    // 3. SAUDAÇÃO DINÂMICA
     // ============================================================
     const saudacaoTexto = document.getElementById('saudacao-texto');
     if (saudacaoTexto) {
@@ -52,19 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (hora >= 12 && hora < 18) {
             mensagem = '☀️ Boa tarde! ';
         } else {
-            mensagem = '🌙 Boa noite! '; // Captura corretamente o período das 18h às 04h
+            mensagem = '🌙 Boa noite! ';
         }
 
         saudacaoTexto.textContent = mensagem + 'Bem-vindo ao futuro sustentável.';
     }
 
     // ============================================================
-    // 3. DARK MODE
+    // 4. ALTERNADOR DE MODO ESCURO (DARK MODE)
     // ============================================================
     const btnDarkMode = document.getElementById("toggle-dark-mode");
     if (btnDarkMode) {
-        // O tema salvo já é verificado no Head do HTML para evitar Flash, 
-        // mas garantimos a sincronia do estado aqui se necessário.
         btnDarkMode.addEventListener("click", () => {
             document.documentElement.classList.toggle("dark-mode");
             const isDark = document.documentElement.classList.contains("dark-mode");
@@ -73,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 4. MENU MOBILE
+    // 5. MENU MOBILE RESPONSIVO
     // ============================================================
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
@@ -93,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 5. FORMULÁRIO DE PARTICIPAÇÃO
+    // 6. FORMULÁRIO DE PARTICIPAÇÃO COM VALIDAÇÃO
     // ============================================================
     const btnParticipar = document.getElementById('btn-participar');
     const inputNome = document.getElementById('user-name');
@@ -115,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 6. ANIMAÇÃO DOS INFO-ITEMS 
+    // 7. ANIMAÇÃO SUAVE DE ENTRADA (INFO-ITEMS)
     // ============================================================
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -134,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ============================================================
-    // 7. ACESSIBILIDADE - TAMANHO DA FONTE
+    // 8. ACESSIBILIDADE - REDIMENSIONAMENTO DE FONTE
     // ============================================================
     const btnAumentar = document.getElementById('btn-aumentar');
     const btnDiminuir = document.getElementById('btn-diminuir');
@@ -145,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('fontSize', tamanhoAtual);
     }
 
-    atualizarFonte(); // Executa ao carregar para aplicar o tamanho guardado
+    atualizarFonte(); // Executa para reter a configuração preferida do usuário
 
     if (btnAumentar) {
         btnAumentar.addEventListener('click', () => {
@@ -166,29 +163,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 8. MODAL DINÂMICO - SEÇÃO "COMO AJUDAR"
+    // 9. POP-UP MODAL DINÂMICO PARA A SEÇÃO "COMO AJUDAR"
     // ============================================================
-    const modalContainer = document.createElement('div');
-    modalContainer.id = 'card-modal';
-    modalContainer.classList.add('modal');
-    modalContainer.style.display = 'none';
+    // Criando a estrutura usando a nova tag estrutural <dialog> para evitar falhas de foco
+    const dialogAjuda = document.createElement('dialog');
+    dialogAjuda.id = 'card-modal';
+    dialogAjuda.classList.add('modal');
 
-    modalContainer.innerHTML = `
+    dialogAjuda.innerHTML = `
         <div class="modal-content">
             <span class="close">&times;</span>
-            <img id="modal-img" src="" alt="" style="width:100%; max-height:250px; object-fit:cover; border-radius:8px; margin-bottom:15px;">
+            <img id="modal-img" src="" alt="" style="width:100%; max-height:220px; object-fit:cover; border-radius:12px; margin-bottom:10px;">
             <h3 id="modal-title"></h3>
-            <p id="modal-desc" style="color: var(--text-muted); margin-top: 10px;"></p>
+            <p id="modal-desc"></p>
         </div>
     `;
-    document.body.appendChild(modalContainer);
+    document.body.appendChild(dialogAjuda);
 
-    const ajudaModal = document.getElementById('card-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
     const modalImg = document.getElementById('modal-img');
-    const modalClose = ajudaModal.querySelector('.close');
+    const modalClose = dialogAjuda.querySelector('.close');
 
+    // Mapeamento de cliques nos cards da seção "Como Ajudar"
     document.querySelectorAll('.cards-grid .card').forEach(card => {
         card.addEventListener('click', (e) => {
             e.preventDefault();
@@ -197,57 +194,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = card.querySelector('h3')?.textContent || '';
             const desc = card.querySelector('p')?.textContent || '';
 
-            modalImg.src = imgSrc;
-            modalTitle.textContent = title;
-            modalDesc.textContent = desc;
+            if (modalImg) modalImg.src = imgSrc;
+            if (modalTitle) modalTitle.textContent = title;
+            if (modalDesc) modalDesc.textContent = desc;
 
-            ajudaModal.style.display = 'block';
-            document.body.style.overflow = 'hidden';
+            dialogAjuda.showModal(); // Ativa de forma nativa e centralizada
         });
     });
 
+    // Evento para fechar o modal dinâmico no botão (X)
     if (modalClose) {
         modalClose.addEventListener('click', () => {
-            ajudaModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            dialogAjuda.close();
         });
     }
 
-    // Fechamento genérico de modais ao clicar na área escura de fora
-    window.addEventListener('click', (e) => {
-        // Fecha o modal dinâmico do "Como Ajudar"
-        if (e.target === ajudaModal) {
-            ajudaModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        // Fecha os modais padrões do HTML ('produtividade', 'agua', 'preservacao')
-        if (e.target.classList && e.target.classList.contains('modal')) {
-            e.target.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-});
-// Função para abrir o pop-up estilo modal
-function openModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.showModal(); // Abre o pop-up centralizado e ativa o efeito de fundo
-    }
-}
-
-// Função para fechar o pop-up
-function closeModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) {
-        modal.close(); // Fecha o pop-up e libera a rolagem da página
-    }
-}
-
-// Opcional: Fecha o pop-up se o usuário clicar fora do conteúdo (no fundo escuro)
-document.querySelectorAll('dialog.modal').forEach(modal => {
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.close();
-        }
+    // ============================================================
+    // 10. REQUISITO COMPLEMENTAR: FECHAMENTO AO CLICAR FORA (BACKDROP)
+    // ============================================================
+    // Aplica o comportamento em TODOS os elementos <dialog> (HTML fixos e o dinâmico acima)
+    document.querySelectorAll('dialog.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.close();
+            }
+        });
     });
 });
