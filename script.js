@@ -227,3 +227,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// Função para abrir o pop-up estilo modal
+function openModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.showModal(); // Abre o pop-up centralizado e ativa o efeito de fundo
+    }
+}
+
+// Função para fechar o pop-up
+function closeModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.close(); // Fecha o pop-up e libera a rolagem da página
+    }
+}
+
+// Opcional: Fecha o pop-up se o usuário clicar fora do conteúdo (no fundo escuro)
+document.querySelectorAll('dialog.modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.close();
+        }
+    });
+});
