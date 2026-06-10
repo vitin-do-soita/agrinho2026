@@ -1,4 +1,6 @@
-/* 1. VARIÁVEIS E TEMAS */
+/* ==========================================================================
+   1. VARIÁVEIS E TEMAS
+   ========================================================================== */
 :root {
     --bg-body: #ffffff;
     --bg-section-alt: #f4f7f4;
@@ -24,7 +26,9 @@
     --bg-color: #121212;
 }
 
-/* 2. RESET E ESTILOS GERAIS */
+/* ==========================================================================
+   2. RESET E ESTILOS GERAIS
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -43,7 +47,9 @@ body {
     transition: background var(--transition-fast), color var(--transition-fast);
 }
 
-/* 3. NAVEGAÇÃO */
+/* ==========================================================================
+   3. NAVEGAÇÃO
+   ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -101,7 +107,9 @@ body {
     color: #fff;
 }
 
-/* 4. SAUDAÇÃO */
+/* ==========================================================================
+   4. SAUDAÇÃO / HERO
+   ========================================================================== */
 .hero {
     padding: 100px 5%;
     text-align: center;
@@ -115,7 +123,9 @@ body {
     font-size: 1.2rem;
 }
 
-/* 5. SEÇÕES E CARDS */
+/* ==========================================================================
+   5. SEÇÕES E CARDS GERAIS
+   ========================================================================== */
 .section {
     padding: 80px 5%;
     text-align: center;
@@ -169,7 +179,15 @@ body {
     color: var(--text-muted);
 }
 
-/* 6. FORMULÁRIO */
+/* Link dos cards para não quebrar o layout */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   6. FORMULÁRIO DE CONTATO
+   ========================================================================== */
 .form-container {
     margin-top: 30px;
     max-width: 500px;
@@ -208,7 +226,9 @@ input[type="text"] {
     font-weight: 500;
 }
 
-/* 7. RESPONSIVIDADE */
+/* ==========================================================================
+   7. RESPONSIVIDADE & MENU MOBILE
+   ========================================================================== */
 .menu-toggle {
     display: none;
     cursor: pointer;
@@ -246,19 +266,9 @@ input[type="text"] {
     #btn-participar { width: 100%; margin-left: 0; }
 }
 
-/* 8. OUTROS ELEMENTOS */
-.dark-mode img {
-    filter: brightness(0.8) contrast(1.1);
-}
-
-footer {
-    padding: 50px 5%;
-    background-color: var(--navbar-bg);
-    border-top: 1px solid rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-/* Grid de Informações */
+/* ==========================================================================
+   8. INFOGRÁFICO (O AGRO EM NÚMEROS)
+   ========================================================================== */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -296,118 +306,94 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Lista de Dicas */
-.dicas-lista {
-    list-style: none;
-    max-width: 700px;
-    margin: 30px auto;
-    text-align: left;
-}
-
-.dicas-lista li {
-    padding: 15px;
-    margin-bottom: 10px;
-    background: var(--bg-body);
-    border-left: 5px solid var(--primary);
-    border-radius: 0 10px 10px 0;
-    box-shadow: var(--shadow);
-}
-
-/* 9. CARTÃO EXPANDÍVEL */
-.expandable-card {
-    background-color: var(--bg-card);
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    padding: 20px;
-    max-width: 600px;
-    margin: 20px auto;
-    transition: all var(--transition-fast);
-    overflow: hidden;
-}
-
-.expandable-card.collapsed {
-    max-height: 120px;
-    cursor: pointer;
-}
-
-.expand-btn {
-    background-color: var(--primary);
-    color: #fff;
+/* ==========================================================================
+   9. POPUPS / MODAIS MODERNOS (CORRIGIDOS)
+   ========================================================================== */
+dialog.modal {
     border: none;
-    border-radius: 20px;
-    padding: 8
-   /* Continuação de 9. CARTÃO EXPANDÍVEL */
-.expand-btn:hover {
-    background-color: #2a6b2a;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
 }
 
-/* 10. MODAIS */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background: rgba(0,0,0,0.6);
-    animation: fadeIn 0.3s;
+/* Transição de entrada estilo zoom */
+dialog.modal[open] {
+    animation: zoomIn 0.3s ease forwards;
+}
+
+/* Cor de fundo atrás do pop-up (Escurece o site) */
+dialog.modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
 }
 
 .modal-content {
-    background: var(--bg-card);
-    color: var(--text-main);
-    margin: 8% auto;
-    padding: 30px 20px;
-    border-radius: 18px;
-    width: 80%;
-    max-width: 500px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     text-align: center;
-    transform: scale(0.7);
-    opacity: 0;
-    animation: zoomIn 0.4s forwards;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
+.modal-content h3 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Botão Fechar (X) */
 .close {
     position: absolute;
-    top: 12px;
-    right: 22px;
-    font-size: 30px;
+    top: -15px;
+    right: -5px;
+    font-size: 2rem;
     font-weight: bold;
-    color: #555;
+    color: var(--text-muted);
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .close:hover {
     color: #d9534f;
+    transform: scale(1.1);
 }
 
-/* 11. ANIMAÇÕES */
-@keyframes fadeIn {
-    from { background: rgba(0,0,0,0); }
-    to { background: rgba(0,0,0,0.6); }
-}
-
+/* ==========================================================================
+   10. ANIMAÇÕES
+   ========================================================================== */
 @keyframes zoomIn {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
 }
 
-@keyframes zoomOut {
-    from { transform: scale(1); opacity: 1; }
-    to { transform: scale(0.7); opacity: 0; }
-}
-
-/* 12. COMO AJUDAR */
+/* ==========================================================================
+   11. COMO AJUDAR
+   ========================================================================== */
 .como-ajudar {
     padding: 60px 20px;
     background-color: var(--bg-section-alt);
     color: var(--text-main);
-    transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .como-ajudar .section-title {
@@ -420,6 +406,7 @@ footer {
     font-size: 1.1rem;
     color: var(--text-muted);
     text-align: center;
+    margin-bottom: 30px;
 }
 
 .cards-grid {
@@ -432,18 +419,6 @@ footer {
 
 .cards-grid .card {
     background-color: var(--bg-card);
-    color: var(--text-main);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    text-align: center;
-    cursor: pointer;
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.cards-grid .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 }
 
 .cards-grid .card img {
@@ -455,15 +430,18 @@ footer {
 .cards-grid .card h3 {
     margin: 15px 0 10px;
     font-size: 1.3rem;
+    color: var(--primary);
 }
 
 .cards-grid .card p {
     font-size: 0.95rem;
-    padding: 0 15px;
+    padding: 0 15px 20px 15px;
     color: var(--text-muted);
 }
 
-/* 13. TIMELINE */
+/* ==========================================================================
+   12. JORNADA SUSTENTÁVEL (TIMELINE)
+   ========================================================================== */
 .timeline {
     position: relative;
     max-width: 800px;
@@ -496,7 +474,7 @@ footer {
     height: 20px;
     border-radius: 50%;
     background-color: var(--primary);
-    border: 4px solid var(--bg-color);
+    border: 4px solid var(--bg-body);
     transition: transform var(--transition-fast);
 }
 
@@ -518,15 +496,23 @@ footer {
     padding: 20px;
     border-radius: 8px;
     box-shadow: var(--shadow);
+    text-align: left;
 }
 
-.timeline-content h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+/* ==========================================================================
+   13. FOOTER & ACESSIBILIDADE
+   ========================================================================== */
+.dark-mode img {
+    filter: brightness(0.8) contrast(1.1);
 }
 
-/* 14. FONTES */
+footer {
+    padding: 50px 5%;
+    background-color: var(--navbar-bg);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+}
+
 .font-switcher {
     background: none;
     border: none;
@@ -540,61 +526,4 @@ footer {
 
 .font-switcher:hover {
     transform: scale(1.1);
-}
-/* Estilização do Pop-up (Modal) */
-modal {
-    border: none;
-    border-radius: 8px;
-    padding: 24px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* Cor de fundo quando o pop-up abre (escurece o resto do site) */
-modal::backdrop {
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(3px); /* Leve efeito borrado no fundo */
-}
-
-/* Conteúdo interno do Pop-up */
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Botão de fechar (X) */
-.close {
-    position: absolute;
-    top: -10px;
-    right: 0;
-    font-size: 1.8rem;
-    cursor: pointer;
-    color: #666;
-    transition: color 0.2s;
-}
-
-.close:hover {
-    color: #000;
-}
-
-/* Suporte para o Modo Escuro no Pop-up */
-.dark-mode modal {
-    background-color: #222;
-    color: #fff;
-}
-
-.dark-mode .close {
-    color: #bbb;
-}
-
-.dark-mode .close:hover {
-    color: #fff;
 }
