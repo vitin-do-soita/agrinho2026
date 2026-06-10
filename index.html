@@ -67,7 +67,7 @@
                         <img src="https://media.gazetadopovo.com.br/2021/09/06150915/O-potencial-energ%C3%A9tico-brasileiro-do-biog%C3%A1s-e-do-biometano-%C3%A9-de-mais-de-100-milh%C3%B5es-de-m%C2%B3-de-g%C3%A1s-por-dia.-960x540.jpg" class="card-img" alt="Matriz Limpa">
                         <div class="card-body">
                             <h3>Matriz Limpa</h3>
-                            <p>Uso de biogás e energia solar em 100% da operation.</p>
+                            <p>Uso de biogás e energia solar em 100% da operação.</p>
                         </div>
                     </div>
                 </a>
@@ -100,19 +100,19 @@
 
         <section id="info" class="section">
             <h2>O Agro em Números</h2>
-            <p>A força que alimenta o mundo respeitando a natureza.</p>
+            <p>A força que alimenta o mundo respeitando a natureza. (Clique nos cards para expandir informações)</p>
             <div class="info-grid">
-                <div class="info-item" onclick="openModal('produtividade')">
+                <div class="info-item" onclick="openModal('produtividade')" style="cursor: pointer;">
                     <span class="info-icon">🚜</span>
                     <h3>+25%</h3>
                     <p>De aumento na produtividade com agricultura de precisão.</p>
                 </div>
-                <div class="info-item" onclick="openModal('agua')">
+                <div class="info-item" onclick="openModal('agua')" style="cursor: pointer;">
                     <span class="info-icon">💧</span>
                     <h3>-40%</h3>
                     <p>De economia de água usando sistemas inteligentes.</p>
                 </div>
-                <div class="info-item" onclick="openModal('preservacao')">
+                <div class="info-item" onclick="openModal('preservacao')" style="cursor: pointer;">
                     <span class="info-icon">🌳</span>
                     <h3>66%</h3>
                     <p>Do território brasileiro é preservado por produtores.</p>
@@ -120,29 +120,29 @@
             </div>
         </section>
 
-        <div id="produtividade" class="modal">
+        <dialog id="produtividade" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('produtividade')">&times;</span>
                 <h3>Produtividade</h3>
                 <p>A agricultura de precisão eleva a produtividade ao trocar o manejo geral da lavoura por intervenções cirúrgicas. Utilizando drones, sensores e GPS, o produtor aplica insumos na quantidade exata e no local correto de cada metro quadrado. Essa eficiência maximiza o potencial do solo, reduz desperdícios e garante safras muito mais fartas e lucrativas na mesma área de terra.</p>
             </div>
-        </div>
+        </dialog>
 
-        <div id="agua" class="modal">
+        <dialog id="agua" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('agua')">&times;</span>
                 <h3>Economia de Água</h3>
                 <p>A agricultura de precisão revoluciona o uso da água ao eliminar o desperdício da irrigação tradicional. Sensores de umidade no solo e dados meteorológicos em tempo real garantem que a planta receba exatamente o que precisa, no momento certo. Essa rega cirúrgica economiza recursos hídricos preciosos e reduz drasticamente os custos com energia no campo.</p>
             </div>
-        </div>
+        </dialog>
 
-        <div id="preservacao" class="modal">
+        <dialog id="preservacao" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal('preservacao')">&times;</span>
                 <h3>Preservação</h3>
                 <p>O Brasil mantém cerca de 66% de seu território preservado, uma marca que soma terras públicas, áreas indígenas e propriedades privadas. Os produtores rurais cumprem um papel fundamental nessa conta, protegendo cerca de um terço desse total por meio de APPs e Reservas Legais em suas terras. Essa conservação une o esforço do campo às políticas públicas, mantendo o país como referência ambiental.</p>
             </div>
-        </div>
+        </dialog>
 
         <section id="videos" class="section section-alt">
             <h2>Vídeos dos Projetos</h2>
