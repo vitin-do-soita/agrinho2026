@@ -527,107 +527,18 @@ footer {
 .font-switcher:hover {
     transform: scale(1.1);
 }
-/* Variáveis de cores */
-:root {
-  --verde: #2a5934;
-  --verde-claro: #66bb6a;
-  --cinza-claro: #f7f9f9;
-  --cinza-escuro: #444;
-  --branco: #ffffff;
-  --sombra: rgba(0, 0, 0, 0.1);
-  --fonte: 'Poppins', sans-serif;
+/* Classes exclusivas para o novo conteúdo */
+#desafios .card,
+#tecnologias .card,
+#sustentabilidade li,
+#quiz button,
+#galeria img {
+    transition: all 0.3s ease;
+    border-radius: 10px;
 }
 
-body {
-  font-family: var(--fonte);
-  margin: 0;
-  padding: 0;
-  background-color: var(--cinza-claro);
-  color: var(--cinza-escuro);
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Mantém cores e fontes do site original */
-.secao {
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.cards-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.card {
-  background-color: #fff; /* mantém cor clara do card */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  width: 240px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-}
-
-.lista-sustentavel {
-  list-style: none;
-  padding: 0;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.lista-sustentavel li {
-  padding: 8px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.quiz-buttons button {
-  margin: 8px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #2a5934;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.quiz-buttons button:hover {
-  background-color: #66bb6a;
-}
-
-.galeria-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.galeria-container img {
-  width: 240px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-
-.galeria-container img:hover {
-  transform: scale(1.05);
-}
-
-/* Saudação dinâmica */
-#saudacao {
-  text-align: center;
-  margin-top: 20px;
-  font-weight: bold;
+#desafios .card:hover,
+#tecnologias .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
