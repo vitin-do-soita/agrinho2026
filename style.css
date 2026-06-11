@@ -1,6 +1,6 @@
-/* =========================================================
+/*
    1. VARIÁVEIS E TEMAS
-========================================================= */
+    */
 :root {
     --bg-body: #ffffff;
     --bg-section-alt: #f4f7f4;
@@ -26,9 +26,9 @@
     --bg-color: #121212;
 }
 
-/* =========================================================
+/*
    2. RESET E ESTILOS GERAIS
-========================================================= */
+    */
 * {
     margin: 0;
     padding: 0;
@@ -47,9 +47,9 @@ body {
     transition: background var(--transition-fast), color var(--transition-fast);
 }
 
-/* =========================================================
+/*
    3. NAVEGAÇÃO
-========================================================= */
+   */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -66,7 +66,6 @@ body {
 .logo {
     font-size: 1.6rem;
     color: var(--primary);
-    font-weight: bold;
     letter-spacing: 1px;
 }
 
@@ -93,58 +92,24 @@ body {
 }
 
 /* Botão de Tema */
-.theme-switcher, .font-switcher {
+.theme-switcher {
     background: transparent;
     border: 2px solid var(--primary);
-    padding: 5px 12px;
+    padding: 4px 12px;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: all var(--transition-fast);
 }
 
-.theme-switcher:hover, .font-switcher:hover {
+.theme-switcher:hover {
     background: var(--primary);
     color: #fff;
 }
 
-/* Menu Mobile */
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    width: 28px;
-    height: 3px;
-    background-color: var(--primary);
-    margin: 5px 0;
-    transition: 0.4s;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle { display: block; }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background-color: var(--navbar-bg);
-        padding: 30px 0;
-        box-shadow: var(--shadow);
-    }
-
-    .nav-links.active { display: flex; }
-
-    .nav-links li { margin: 15px 0; }
-}
-
-/* =========================================================
-   4. HERO / SAUDAÇÃO
-========================================================= */
+/*
+   4. SAUDAÇÃO / HERO
+   */
 .hero {
     padding: 100px 5%;
     text-align: center;
@@ -158,10 +123,10 @@ body {
     font-size: 1.2rem;
 }
 
-/* =========================================================
-   5. SEÇÕES E CARDS
-========================================================= */
-.section, .secao {
+/*
+   5. SEÇÕES E CARDS GERAIS
+    */
+.section {
     padding: 80px 5%;
     text-align: center;
 }
@@ -170,7 +135,7 @@ body {
     background-color: var(--bg-section-alt);
 }
 
-.cards-container, .cards-grid, .galeria-container {
+.cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -201,7 +166,7 @@ body {
 }
 
 .card-body {
-    padding: 20px;
+    padding: 25px;
 }
 
 .card-body h3 {
@@ -214,31 +179,15 @@ body {
     color: var(--text-muted);
 }
 
+/* Link dos cards para não quebrar o layout */
 .card-link {
     text-decoration: none;
     color: inherit;
 }
 
-/* Vídeos responsivos */
-.video-responsive {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-}
-
-.video-responsive iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* =========================================================
+/*
    6. FORMULÁRIO DE CONTATO
-========================================================= */
+  */
 .form-container {
     margin-top: 30px;
     max-width: 500px;
@@ -277,15 +226,49 @@ input[type="text"] {
     font-weight: 500;
 }
 
-/* Responsividade */
+/*
+   7. RESPONSIVIDADE & MENU MOBILE
+    */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    width: 28px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
 @media (max-width: 768px) {
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background-color: var(--navbar-bg);
+        padding: 30px 0;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.active { display: flex; }
+
+    .nav-links li { margin: 15px 0; }
+
     input[type="text"] { width: 100%; margin-bottom: 10px; }
+
     #btn-participar { width: 100%; margin-left: 0; }
 }
 
-/* =========================================================
-   7. INFOGRÁFICOS / TIMELINES / MODAIS
-========================================================= */
+/*
+   8. INFOGRÁFICO (O AGRO EM NÚMEROS)
+    */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -323,7 +306,9 @@ input[type="text"] {
     font-size: 0.95rem;
 }
 
-/* Modais */
+/*
+   9. POPUPS / MODAIS MODERNOS (CORRIGIDOS)
+   */
 dialog.modal {
     border: none;
     border-radius: 16px;
@@ -334,4 +319,211 @@ dialog.modal {
     background-color: var(--bg-card);
     color: var(--text-main);
     position: fixed;
-    top
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+}
+
+/* Transição de entrada estilo zoom */
+dialog.modal[open] {
+    animation: zoomIn 0.3s ease forwards;
+}
+
+/* Cor de fundo atrás do pop-up (Escurece o site) */
+dialog.modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* Botão Fechar (X) */
+.close {
+    position: absolute;
+    top: -15px;
+    right: -5px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close:hover {
+    color: #d9534f;
+    transform: scale(1.1);
+}
+
+/*
+   10. ANIMAÇÕES
+   */
+@keyframes zoomIn {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/*
+   11. COMO AJUDAR
+  */
+.como-ajudar {
+    padding: 60px 20px;
+    background-color: var(--bg-section-alt);
+    color: var(--text-main);
+}
+
+.como-ajudar .section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.como-ajudar .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cards-grid .card {
+    background-color: var(--bg-card);
+}
+
+.cards-grid .card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.cards-grid .card h3 {
+    margin: 15px 0 10px;
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.cards-grid .card p {
+    font-size: 0.95rem;
+    padding: 0 15px 20px 15px;
+    color: var(--text-muted);
+}
+
+/*
+   12. JORNADA SUSTENTÁVEL (TIMELINE)
+   */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--primary);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 50px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 22px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    border: 4px solid var(--bg-body);
+    transition: transform var(--transition-fast);
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.timeline-content {
+    background: var(--bg-card);
+    color: var(--text-main);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+/*
+   13. FOOTER & ACESSIBILIDADE
+   */
+.dark-mode img {
+    filter: brightness(0.8) contrast(1.1);
+}
+
+footer {
+    padding: 50px 5%;
+    background-color: var(--navbar-bg);
+    border-top: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.font-switcher {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+
+.font-switcher:hover {
+    transform: scale(1.1);
+}
