@@ -1,6 +1,6 @@
-/* ==========================================================================
+/* 
    PROJETO AGRO FORTE - SCRIPT CONTROLADOR
-   ========================================================================== */
+    */
 
 // 1. FUNÇÕES GLOBAIS DE CONTROLE DOS MODAIS NA TAG <DIALOG>
 // Deixadas fora do DOMContentLoaded para que os seletores 'onclick' do HTML funcionem diretamente.
@@ -21,9 +21,9 @@ function closeModal(id) {
 // Inicialização de todos os seletores e eventos internos do DOM
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ============================================================
+    // 
     // 2. CONFIGURAÇÃO DA NAVBAR AO ROLAR
-    // ============================================================
+    // 
     const nav = document.querySelector('.navbar');
     if (nav) {
         window.addEventListener('scroll', () => {
@@ -38,9 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
+    // 
     // 3. SAUDAÇÃO DINÂMICA
-    // ============================================================
+    //
     const saudacaoTexto = document.getElementById('saudacao-texto');
     if (saudacaoTexto) {
         const hora = new Date().getHours();
@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         saudacaoTexto.textContent = mensagem + 'Bem-vindo ao futuro sustentável.';
     }
 
-    // ============================================================
+    // 
     // 4. ALTERNADOR DE MODO ESCURO (DARK MODE)
-    // ============================================================
+    // 
     const btnDarkMode = document.getElementById("toggle-dark-mode");
     if (btnDarkMode) {
         btnDarkMode.addEventListener("click", () => {
@@ -69,9 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
+    //
     // 5. MENU MOBILE RESPONSIVO
-    // ============================================================
+    // 
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
 
@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
+    // 
     // 6. FORMULÁRIO DE PARTICIPAÇÃO COM VALIDAÇÃO
-    // ============================================================
+    // 
     const btnParticipar = document.getElementById('btn-participar');
     const inputNome = document.getElementById('user-name');
     const feedbackMsg = document.getElementById('feedback-msg');
@@ -111,9 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
+    // 
     // 7. ANIMAÇÃO SUAVE DE ENTRADA (INFO-ITEMS)
-    // ============================================================
+    // 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -130,9 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(item);
     });
 
-    // ============================================================
+    // 
     // 8. ACESSIBILIDADE - REDIMENSIONAMENTO DE FONTE
-    // ============================================================
+    // 
     const btnAumentar = document.getElementById('btn-aumentar');
     const btnDiminuir = document.getElementById('btn-diminuir');
     let tamanhoAtual = parseInt(localStorage.getItem('fontSize')) || 100;
@@ -162,9 +162,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
+    //
     // 9. POP-UP MODAL DINÂMICO PARA A SEÇÃO "COMO AJUDAR"
-    // ============================================================
+    // 
     // Criando a estrutura usando a nova tag estrutural <dialog> para evitar falhas de foco
     const dialogAjuda = document.createElement('dialog');
     dialogAjuda.id = 'card-modal';
@@ -209,9 +209,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ============================================================
+    // 
     // 10. REQUISITO COMPLEMENTAR: FECHAMENTO AO CLICAR FORA (BACKDROP)
-    // ============================================================
+    // 
     // Aplica o comportamento em TODOS os elementos <dialog> (HTML fixos e o dinâmico acima)
     document.querySelectorAll('dialog.modal').forEach(modal => {
         modal.addEventListener('click', (e) => {
