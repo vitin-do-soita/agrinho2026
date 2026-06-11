@@ -222,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 <script>
+/* Quiz */
 function verificarResposta(botao, correto) {
   const resultado = document.getElementById('resultado-quiz');
   if(correto){
@@ -232,4 +233,19 @@ function verificarResposta(botao, correto) {
     resultado.style.color = "red";
   }
 }
+
+/* Saudação dinâmica */
+function saudacaoDinamica() {
+  const agora = new Date();
+  const hora = agora.getHours();
+  let saudacao = "";
+
+  if(hora >= 5 && hora < 12) saudacao = "Bom dia!";
+  else if(hora >= 12 && hora < 18) saudacao = "Boa tarde!";
+  else saudacao = "Boa noite!";
+
+  document.getElementById("saudacao").textContent = saudacao + " Bem-vindo ao Agrinho 2026!";
+}
+
+saudacaoDinamica();
 </script>
