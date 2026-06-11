@@ -1,262 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte - Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark-mode');
-            }
-        })();
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte - Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="logo"><strong>AGRO</strong>FORTE</div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#areas">Atuação</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#info">Dados</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li>
-                    <button id="toggle-dark-mode" class="theme-switcher" aria-label="Alternar modo escuro"> </button>
-                </li>
-                <li>
-                    <button id="btn-aumentar" class="font-switcher" aria-label="Aumentar fonte">A+</button>
-                </li>
-                <li>
-                    <button id="btn-diminuir" class="font-switcher" aria-label="Diminuir fonte">A-</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <div class="logo"><strong>AGRO</strong>FORTE</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#areas">Atuação</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#info">Dados</a></li>
+                <li><a href="#videos">Vídeos</a></li>
+                <li><a href="#desafios">Desafios</a></li>
+                <li><a href="#tecnologias">Tecnologias</a></li>
+                <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li>
+                    <button id="toggle-dark-mode" class="theme-switcher">🌓</button>
+                </li>
+                <li>
+                    <button id="btn-aumentar" class="font-switcher">A+</button>
+                    <button id="btn-diminuir" class="font-switcher">A-</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-    <section id="home" class="hero">
-        <p id="saudacao-texto" class="js-message">Carregando...</p>
-        <h1>Agro Forte</h1>
-        <p>O equilíbrio perfeito entre a produtividade e o respeito à terra.</p>
-    </section>
+    <!-- HOME -->
+    <section id="home" class="hero">
+        <p id="saudacao-texto">Carregando...</p>
+        <h1>Agro Forte</h1>
+        <p>O equilíbrio perfeito entre produtividade e respeito à terra.</p>
+    </section>
 
-    <main>
-        <section id="areas" class="section">
-            <h2>Nossas Frentes de Atuação</h2>
-            <p>Como transformamos o campo hoje.</p>
-            <div class="cards-container">
-                <a href="https://www.brevant.com.br/blog/artigos/inteligencia-artificial-agricultura-de-precisao-para-um-agronegocio-mais-forte.html" class="card-link" target="_blank">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Produção Inteligente">
-                        <div class="card-body">
-                            <h3>Produção Inteligente</h3>
-                            <p>Tecnologia de precisão para máxima colheita com mínimo impacto.</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://canalbioenergia.com.br/usinas-hibridas-de-energia-solar-e-biogas-ampliam-potencial-energetico-de-produtores-rurais/" class="card-link" target="_blank">
-                    <div class="card">
-                        <img src="https://media.gazetadopovo.com.br/2021/09/06150915/O-potencial-energ%C3%A9tico-brasileiro-do-biog%C3%A1s-e-do-biometano-%C3%A9-de-mais-de-100-milh%C3%B5es-de-m%C2%B3-de-g%C3%A1s-por-dia.-960x540.jpg" class="card-img" alt="Matriz Limpa">
-                        <div class="card-body">
-                            <h3>Matriz Limpa</h3>
-                            <p>Uso de biogás e energia solar em 100% da operação.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
+    <main>
+        <!-- ÁREAS -->
+        <section id="areas" class="section">
+            <h2>Nossas Frentes de Atuação</h2>
+            <div class="cards-container">
+                <a href="https://www.brevant.com.br/blog/artigos/inteligencia-artificial-agricultura-de-precisao-para-um-agronegocio-mais-forte.html" target="_blank" class="card-link">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=500&q=60" alt="Produção Inteligente">
+                        <div class="card-body">
+                            <h3>Produção Inteligente</h3>
+                            <p>Tecnologia de precisão para máxima colheita com mínimo impacto.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://canalbioenergia.com.br/usinas-hibridas-de-energia-solar-e-biogas-ampliam-potencial-energetico-de-produtores-rurais/" target="_blank" class="card-link">
+                    <div class="card">
+                        <img src="https://media.gazetadopovo.com.br/2021/09/06150915/O-potencial-energ%C3%A9tico-brasileiro-do-biog%C3%A1s-e-do-biometano-%C3%A9-de-mais-de-100-milh%C3%B5es-de-m%C2%B3-de-g%C3%A1s-por-dia.-960x540.jpg" alt="Matriz Limpa">
+                        <div class="card-body">
+                            <h3>Matriz Limpa</h3>
+                            <p>Uso de biogás e energia solar em 100% da operação.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        <section id="projetos" class="section section-alt">
-            <h2>Projetos em Campo</h2>
-            <div class="cards-container">
-                <a href="https://www.idrparana.pr.gov.br/Noticia/Mata-ciliar-aumenta-12-no-Parana-com-protecao-de-nascentes-e-plantio-de-mudas" class="card-link" target="_blank">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Operação Reverdecer">
-                        <div class="card-body">
-                            <h3>Operação Reverdecer</h3>
-                            <p>Recuperação de nascentes e matas ciliares locais.</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="https://querobolsa.com.br/revista/horta-escolar" class="card-link" target="_blank">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=500&q=60" class="card-img" alt="Horta Escola">
-                        <div class="card-body">
-                            <h3>Horta Escola</h3>
-                            <p>Educação agrícola sustentável para comunidades vizinhas.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
+        <!-- PROJETOS -->
+        <section id="projetos" class="section section-alt">
+            <h2>Projetos em Campo</h2>
+            <div class="cards-container">
+                <a href="https://www.idrparana.pr.gov.br/Noticia/Mata-ciliar-aumenta-12-no-Parana-com-protecao-de-nascentes-e-plantio-de-mudas" target="_blank" class="card-link">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=500&q=60" alt="Operação Reverdecer">
+                        <div class="card-body">
+                            <h3>Operação Reverdecer</h3>
+                            <p>Recuperação de nascentes e matas ciliares locais.</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://querobolsa.com.br/revista/horta-escolar" target="_blank" class="card-link">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=500&q=60" alt="Horta Escola">
+                        <div class="card-body">
+                            <h3>Horta Escola</h3>
+                            <p>Educação agrícola sustentável para comunidades vizinhas.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
 
-        <section id="info" class="section">
-            <h2>O Agro em Números</h2>
-            <p>A força que alimenta o mundo respeitando a natureza. (Clique nos cards para expandir informações)</p>
-            <div class="info-grid">
-                <div class="info-item" onclick="openModal('produtividade')" style="cursor: pointer;">
-                    <span class="info-icon"> </span>
-                    <h3>+25%</h3>
-                    <p>De aumento na produtividade com agricultura de precisão.</p>
-                </div>
-                <div class="info-item" onclick="openModal('agua')" style="cursor: pointer;">
-                    <span class="info-icon"> </span>
-                    <h3>-40%</h3>
-                    <p>De economia de água usando sistemas inteligentes.</p>
-                </div>
-                <div class="info-item" onclick="openModal('preservacao')" style="cursor: pointer;">
-                    <span class="info-icon"> </span>
-                    <h3>66%</h3>
-                    <p>Do território brasileiro é preservado por produtores.</p>
-                </div>
-            </div>
-        </section>
+        <!-- DADOS / INFO -->
+        <section id="info" class="section">
+            <h2>O Agro em Números</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-icon">🚜</span>
+                    <h3>+25%</h3>
+                    <p>De aumento na produtividade com agricultura de precisão.</p>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">💧</span>
+                    <h3>-40%</h3>
+                    <p>De economia de água usando sistemas inteligentes.</p>
+                </div>
+                <div class="info-item">
+                    <span class="info-icon">🌳</span>
+                    <h3>66%</h3>
+                    <p>Do território brasileiro é preservado por produtores.</p>
+                </div>
+            </div>
+        </section>
 
-        <dialog id="produtividade" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('produtividade')">&times;</span>
-                <h3>Produtividade</h3>
-                <p>A agricultura de precisão eleva a produtividade ao trocar o manejo geral da lavoura por intervenções cirúrgicas. Utilizando drones, sensores e GPS, o produtor aplica insumos na quantidade exata e no local correto de cada metro quadrado. Essa eficiência maximiza o potencial do solo, reduz desperdícios e garante safras muito mais fartas e lucrativas na mesma área de terra.</p>
-            </div>
-        </dialog>
+        <!-- VÍDEOS -->
+        <section id="videos" class="section section-alt">
+            <h2>Vídeos dos Projetos</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="video-responsive">
+                        <iframe src="https://www.youtube.com/embed/z8R_ZCxJel8" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h3>Bastidores Reverdecer</h3>
+                        <p>Veja o progresso da recuperação das nossas nascentes.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="video-responsive">
+                        <iframe src="https://www.youtube.com/embed/epYOBQKgbF8" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="card-body">
+                        <h3>Impacto Social</h3>
+                        <p>O dia a dia das crianças no projeto Horta Escola.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <dialog id="agua" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('agua')">&times;</span>
-                <h3>Economia de Água</h3>
-                <p>A agricultura de precisão revoluciona o uso da água ao eliminar o desperdício da irrigação tradicional. Sensores de umidade no solo e dados meteorológicos em tempo real garantem que a planta receba exatamente o que precisa, no momento certo. Essa rega cirúrgica economiza recursos hídricos preciosos e reduz drasticamente os custos com energia no campo.</p>
-            </div>
-        </dialog>
+        <!-- DESAFIOS -->
+        <section id="desafios" class="section">
+            <h2>Desafios do Agro</h2>
+            <div class="cards-container">
+                <div class="card"><h3>💧 Uso Excessivo de Água</h3><p>Otimizar irrigação ajuda a conservar os recursos hídricos.</p></div>
+                <div class="card"><h3>🌳 Desmatamento</h3><p>Preservar áreas naturais mantém o equilíbrio ambiental.</p></div>
+                <div class="card"><h3>🍽️ Desperdício de Alimentos</h3><p>Planejamento e tecnologia reduzem o desperdício.</p></div>
+                <div class="card"><h3>🌎 Emissão de Gases</h3><p>Práticas agrícolas sustentáveis reduzem impactos ambientais.</p></div>
+            </div>
+        </section>
 
-        <dialog id="preservacao" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('preservacao')">&times;</span>
-                <h3>Preservação</h3>
-                <p>O Brasil mantém cerca de 66% de seu território preservado, uma marca que soma terras públicas, áreas indígenas e propriedades privadas. Os produtores rurais cumprem um papel fundamental nessa conta, protegendo cerca de um terço desse total por meio de APPs e Reservas Legais em suas terras. Essa conservação une o esforço do campo às políticas públicas, mantendo o país como referência ambiental.</p>
-            </div>
-        </dialog>
+        <!-- TECNOLOGIAS -->
+        <section id="tecnologias" class="section section-alt">
+            <h2>Tecnologias Aplicadas</h2>
+            <div class="cards-container">
+                <div class="card"><h3>🚀 Drones</h3><p>Monitoramento aéreo das plantações.</p></div>
+                <div class="card"><h3>🤖 IA</h3><p>Previsão de colheita e manejo inteligente.</p></div>
+                <div class="card"><h3>📡 IoT</h3><p>Sensores que informam condições do solo e clima.</p></div>
+                <div class="card"><h3>💡 Energia Solar</h3><p>Fontes renováveis para toda a operação.</p></div>
+            </div>
+        </section>
 
-        <section id="videos" class="section section-alt">
-            <h2>Vídeos dos Projetos</h2>
-            <div class="cards-container">
-                <div class="card">
-                    <div class="video-responsive">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/z8R_ZCxJel8" title="Vídeo Reverdecer" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-body">
-                        <h3>Bastidores Reverdecer</h3>
-                        <p>Veja o progresso da recuperação das nossas nascentes.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="video-responsive">
-                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/epYOBQKgbF8" title="Vídeo Impacto Social" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="card-body">
-                        <h3>Impacto Social</h3>
-                        <p>O dia a dia das crianças no projeto Horta Escola.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- SUSTENTABILIDADE -->
+        <section id="sustentabilidade" class="section">
+            <h2>Sustentabilidade</h2>
+            <p>Investimos em energia limpa, preservação da água e educação ambiental.</p>
+            <div class="cards-container">
+                <div class="card"><h3>💧 Água</h3><p>Uso consciente em todos os processos.</p></div>
+                <div class="card"><h3>🌱 Solo</h3><p>Recuperação e plantio de culturas nativas.</p></div>
+                <div class="card"><h3>🌞 Energia</h3><p>Energia solar e biogás substituem combustíveis fósseis.</p></div>
+                <div class="card"><h3>👩‍🌾 Educação</h3><p>Programas para crianças e produtores.</p></div>
+            </div>
+        </section>
 
-        <section class="section como-ajudar">
-            <div class="container">
-                <h2 class="section-title">Como você pode ajudar?</h2>
-                <p class="section-subtitle">Pequenas atitudes podem fazer grande diferença no meio ambiente e na sua comunidade.</p>
+        <!-- QUIZ -->
+        <section id="quiz" class="section section-alt">
+            <h2>Teste seus conhecimentos</h2>
+            <div id="quiz-container">
+                <p id="quiz-pergunta">Qual é a principal fonte de energia usada em Agro Forte?</p>
+                <div class="quiz-options">
+                    <button class="quiz-btn" data-answer="errado">Combustível fóssil</button>
+                    <button class="quiz-btn" data-answer="certo">Energia solar e biogás</button>
+                    <button class="quiz-btn" data-answer="errado">Carvão</button>
+                    <button class="quiz-btn" data-answer="errado">Energia nuclear</button>
+                </div>
+                <p id="quiz-feedback"></p>
+            </div>
+        </section>
 
-                <div class="cards-grid">
-                    <div class="card">
-                        <img src="https://caixacolonial.club/blog/wp-content/uploads/2017/01/7.jpg" alt="Produtos locais">
-                        <h3> Consuma Local</h3>
-                        <p>Apoie o produtor da sua região. Consumir localmente diminui a distância que o alimento percorre, reduz a emissão de carbono no transporte e garante produtos muito mais frescos e nutritivos na sua mesa, fortalecendo a economia da nossa comunidade.</p>
-                    </div>
+        <!-- GALERIA -->
+        <section id="galeria" class="section">
+            <h2>Galeria</h2>
+            <div class="cards-container">
+                <div class="card"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=500&q=60" alt="Galeria 1"></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=500&q=60" alt="Galeria 2"></div>
+                <div class="card"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=500&q=60" alt="Galeria 3"></div>
+            </div>
+        </section>
 
-                    <div class="card">
-                        <img src="https://nutrimixconsultoria.com.br/wp-content/uploads/2018/05/como-diminuir-desperdicio-restaurante-estabelecimento.jpg" alt="Evitar desperdício de alimentos">
-                        <h3> Evite o Desperdício</h3>
-                        <p>Pense antes de descartar. Planejar as compras da semana, armazenar os alimentos corretamente e aproveitar partes não convencionais (como cascas e talos) reduz o lixo orgânico e valoriza todo o esforço dedicado ao cultivo no campo.</p>
-                    </div>
+        <!-- CONTATO -->
+        <section id="contato" class="section section-alt">
+            <h2>Contato Sustentável</h2>
+            <p>Insira seu nome para receber novidades sobre nossas ações.</p>
+            <div class="form-container">
+                <input type="text" id="user-name" placeholder="Seu Nome">
+                <button id="btn-participar">Participar</button>
+                <p id="feedback-msg"></p>
+            </div>
+        </section>
+    </main>
 
-                    <div class="card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxKGM_m0RIwajUm4lNIFNNGNycohHyi0YLdA&s" alt="Educação sobre tecnologia e meio ambiente">
-                        <h3> Educação</h3>
-                        <p>Conhecimento transforma o campo. Compartilhar práticas sustentáveis e novas tecnologias agrícolas com a comunidade conscientiza as próximas gerações, unindo inovação e respeito à natureza para garantir a segurança alimentar de todos.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Agro Forte - Todos os direitos reservados.</p>
+        <p style="font-size:0.7rem; opacity:0.6; margin-top:10px;">Imagens: Unsplash | Vídeos: YouTube | Tag: agrinho</p>
+    </footer>
 
-        <section id="contato" class="section section-alt">
-            <h2>Contato Sustentável</h2>
-            <p>Insira seu nome para receber novidades sobre nossas ações.</p>
-            <div class="form-container">
-                <input type="text" id="user-name" placeholder="Seu Nome">
-                <button id="btn-participar">Participar</button>
-                <p id="feedback-msg"></p>
-            </div>
-        </section>
-
-        <section id="linha-tempo" class="section">
-            <h2>Nossa Jornada Sustentável</h2>
-            <p>Os marcos e a evolução das nossas ações no campo.</p>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Fase 1</div>
-                    <div class="timeline-content">
-                        <h3>Matriz Energética 100% Limpa</h3>
-                        <p>Consolidação do uso de biogás e energia solar em todas as operações, eliminando combustíveis fósseis da nossa produção.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Fase 2</div>
-                    <div class="timeline-content">
-                        <h3>Tecnologia e Eficiência</h3>
-                        <p>Introdução da agricultura de precisão. Conquistamos 25% mais produtividade e reduzimos em 40% o consumo de água com irrigação cirúrgica.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Fase 3</div>
-                    <div class="timeline-content">
-                        <h3>Operação Reverdecer</h3>
-                        <p>Início do mapeamento e recuperação ativa de nascentes e matas ciliares locais, protegendo a biodiversidade da região.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Fase 4</div>
-                    <div class="timeline-content">
-                        <h3>Projeto Horta Escola</h3>
-                        <p>Abertura das nossas fronteiras para a comunidade. Educação agrícola e conscientização ambiental para escolas vizinhas.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Agro Forte - Todos os direitos reservados.</p>
-        <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 10px;">
-            Imagens: Unsplash | Vídeos: YouTube | Tag: agrinho
-        </p>
-    </footer>
-
-    <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-/*
