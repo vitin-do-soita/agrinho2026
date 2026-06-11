@@ -552,57 +552,31 @@ body {
   padding: 0 20px;
 }
 
+/* Mantém cores e fontes do site original */
 .secao {
-  padding: 80px 0;
+  padding: 60px 20px;
   text-align: center;
-  transition: all 0.3s ease;
-}
-
-.secao-alt {
-  background-color: var(--branco);
-}
-
-.secao h2 {
-  font-size: 2.5em;
-  margin-bottom: 50px;
-  color: var(--verde);
-  position: relative;
-}
-
-.secao h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--verde-claro);
-  margin: 10px auto 0 auto;
-  border-radius: 2px;
 }
 
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .card {
-  background-color: var(--branco);
-  padding: 30px 20px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px var(--sombra);
-  width: 260px;
+  background-color: #fff; /* mantém cor clara do card */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 240px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 25px var(--sombra);
-}
-
-.card h3 {
-  margin-bottom: 15px;
-  color: var(--verde-claro);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
 }
 
 .lista-sustentavel {
@@ -614,50 +588,36 @@ body {
 }
 
 .lista-sustentavel li {
-  padding: 12px 0;
-  font-size: 1.2em;
+  padding: 8px 0;
   border-bottom: 1px solid #ddd;
 }
 
-.quiz-container p {
-  font-size: 1.2em;
-  margin-bottom: 20px;
-}
-
 .quiz-buttons button {
-  margin: 10px;
-  padding: 12px 25px;
+  margin: 8px;
+  padding: 10px 20px;
   border: none;
-  background-color: var(--verde);
-  color: var(--branco);
-  border-radius: 8px;
+  background-color: #2a5934;
+  color: white;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 1em;
-  transition: 0.3s;
 }
 
 .quiz-buttons button:hover {
-  background-color: var(--verde-claro);
-}
-
-#resultado-quiz {
-  margin-top: 15px;
-  font-weight: bold;
-  font-size: 1.2em;
+  background-color: #66bb6a;
 }
 
 .galeria-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 .galeria-container img {
-  width: 280px;
-  height: 180px;
+  width: 240px;
+  height: 140px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 10px;
   transition: transform 0.3s;
 }
 
@@ -665,10 +625,9 @@ body {
   transform: scale(1.05);
 }
 
-/* Responsividade */
-@media(max-width: 768px){
-  .cards-container, .galeria-container {
-    flex-direction: column;
-    align-items: center;
-  }
+/* Saudação dinâmica */
+#saudacao {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
 }
