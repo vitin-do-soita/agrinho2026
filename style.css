@@ -1,529 +1,295 @@
-/*
-   1. VARIÁVEIS E TEMAS
-    */
-:root {
-    --bg-body: #ffffff;
-    --bg-section-alt: #f4f7f4;
-    --bg-card: #ffffff;
-    --text-main: #2d3436;
-    --text-muted: #636e72;
-    --primary: #2e7d32; /* Verde Agro Forte */
-    --navbar-bg: #ffffff;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    --bg-color: #ffffff; /* Para timeline e bordas */
-    --transition-fast: 0.3s ease;
-}
-
-.dark-mode {
-    --bg-body: #121212;
-    --bg-section-alt: #1a1a1a;
-    --bg-card: #1e1e1e;
-    --text-main: #f5f6fa;
-    --text-muted: #b2bec3;
-    --primary: #4caf50; /* Verde vibrante */
-    --navbar-bg: #1e1e1e;
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    --bg-color: #121212;
-}
-
-/*
-   2. RESET E ESTILOS GERAIS
-    */
+/* RESET E BASE */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--bg-body);
-    color: var(--text-main);
+    background-color: #f0f2f5;
+    color: #222;
     line-height: 1.6;
-    transition: background var(--transition-fast), color var(--transition-fast);
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
-/*
-   3. NAVEGAÇÃO
-   */
+h1, h2, h3 {
+    margin-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* DARK MODE */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .card {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+}
+
+body.dark-mode footer {
+    background-color: #1f1f1f;
+}
+
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 5%;
-    background-color: var(--navbar-bg);
-    box-shadow: var(--shadow);
+    padding: 0.8rem 2rem;
+    background-color: #fff;
     position: sticky;
     top: 0;
-    z-index: 1000;
-    transition: all var(--transition-fast);
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.logo {
-    font-size: 1.6rem;
-    color: var(--primary);
-    letter-spacing: 1px;
+.navbar .logo {
+    font-size: 1.5rem;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-links li {
-    margin-left: 25px;
+    margin-left: 0.5rem;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-main);
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color var(--transition-fast);
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-/* Botão de Tema */
-.theme-switcher {
-    background: transparent;
-    border: 2px solid var(--primary);
-    padding: 4px 12px;
-    border-radius: 20px;
+.nav-links button {
     cursor: pointer;
-    font-size: 1.1rem;
-    transition: all var(--transition-fast);
 }
 
-.theme-switcher:hover {
-    background: var(--primary);
+/* MENU MOBILE */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #222;
+    margin: 4px 0;
+    transition: 0.3s;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 5rem 1rem;
+    background: linear-gradient(to right, #4caf50, #81c784);
     color: #fff;
 }
 
-/*
-   4. SAUDAÇÃO / HERO
-   */
-.hero {
-    padding: 100px 5%;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.02), rgba(0,0,0,0.05));
+.hero h1 {
+    font-size: 3rem;
 }
 
-.js-message {
-    font-weight: bold;
-    color: var(--primary);
-    margin-bottom: 10px;
+.hero p {
     font-size: 1.2rem;
 }
 
-/*
-   5. SEÇÕES E CARDS GERAIS
-    */
+/* SECTIONS */
 .section {
-    padding: 80px 5%;
-    text-align: center;
+    padding: 3rem 1rem;
 }
 
 .section-alt {
-    background-color: var(--bg-section-alt);
+    background-color: #f5f5f5;
 }
 
+body.dark-mode .section-alt {
+    background-color: #1a1a1a;
+}
+
+/* CARDS */
 .cards-container {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
     justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
 }
 
 .card {
-    background-color: var(--bg-card);
-    border-radius: 12px;
+    background-color: #fff;
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    width: 320px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    width: 280px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-body {
-    padding: 25px;
-}
-
-.card-body h3 {
-    margin-bottom: 12px;
-    color: var(--primary);
-}
-
-.card-body p {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-}
-
-/* Link dos cards para não quebrar o layout */
-.card-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-/*
-   6. FORMULÁRIO DE CONTATO
-  */
-.form-container {
-    margin-top: 30px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-input[type="text"] {
-    padding: 12px 20px;
-    width: 70%;
-    border-radius: 25px;
-    border: 1px solid var(--text-muted);
-    background: var(--bg-card);
-    color: var(--text-main);
-    outline: none;
-}
-
-#btn-participar {
-    padding: 12px 25px;
-    border-radius: 25px;
-    border: none;
-    background: var(--primary);
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: opacity var(--transition-fast);
-}
-
-#btn-participar:hover {
-    opacity: 0.9;
-}
-
-#feedback-msg {
-    margin-top: 15px;
-    font-weight: 500;
-}
-
-/*
-   7. RESPONSIVIDADE & MENU MOBILE
-    */
-.menu-toggle {
-    display: none;
-    cursor: pointer;
-}
-
-.bar {
-    width: 28px;
-    height: 3px;
-    background-color: var(--primary);
-    margin: 5px 0;
-    transition: 0.4s;
-}
-
-@media (max-width: 768px) {
-    .menu-toggle { display: block; }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background-color: var(--navbar-bg);
-        padding: 30px 0;
-        box-shadow: var(--shadow);
-    }
-
-    .nav-links.active { display: flex; }
-
-    .nav-links li { margin: 15px 0; }
-
-    input[type="text"] { width: 100%; margin-bottom: 10px; }
-
-    #btn-participar { width: 100%; margin-left: 0; }
-}
-
-/*
-   8. INFOGRÁFICO (O AGRO EM NÚMEROS)
-    */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.info-item {
-    padding: 20px;
-    background: var(--bg-card);
-    border-radius: 15px;
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.info-item:hover {
-    transform: scale(1.08);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
-}
-
-.info-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.info-item h3 {
-    font-size: 2rem;
-    color: var(--primary);
-}
-
-.info-item p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-}
-
-/*
-   9. POPUPS / MODAIS MODERNOS (CORRIGIDOS)
-   */
-dialog.modal {
-    border: none;
-    border-radius: 16px;
-    padding: 30px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    background-color: var(--bg-card);
-    color: var(--text-main);
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    outline: none;
-}
-
-/* Transição de entrada estilo zoom */
-dialog.modal[open] {
-    animation: zoomIn 0.3s ease forwards;
-}
-
-/* Cor de fundo atrás do pop-up (Escurece o site) */
-dialog.modal::backdrop {
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-}
-
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-}
-
-.modal-content h3 {
-    color: var(--primary);
-    font-size: 1.8rem;
-    margin-top: 10px;
-}
-
-.modal-content p {
-    font-size: 1rem;
-    color: var(--text-main);
-    line-height: 1.6;
-}
-
-/* Botão Fechar (X) */
-.close {
-    position: absolute;
-    top: -15px;
-    right: -5px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.close:hover {
-    color: #d9534f;
-    transform: scale(1.1);
-}
-
-/*
-   10. ANIMAÇÕES
-   */
-@keyframes zoomIn {
-    from {
-        transform: translate(-50%, -50%) scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
-    }
-}
-
-/*
-   11. COMO AJUDAR
-  */
-.como-ajudar {
-    padding: 60px 20px;
-    background-color: var(--bg-section-alt);
-    color: var(--text-main);
-}
-
-.como-ajudar .section-title {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.como-ajudar .section-subtitle {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.cards-grid .card {
-    background-color: var(--bg-card);
-}
-
-.cards-grid .card img {
+.card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
 }
 
-.cards-grid .card h3 {
-    margin: 15px 0 10px;
-    font-size: 1.3rem;
-    color: var(--primary);
+.card-body {
+    padding: 1rem;
 }
 
-.cards-grid .card p {
-    font-size: 0.95rem;
-    padding: 0 15px 20px 15px;
-    color: var(--text-muted);
+.card h3 {
+    margin-bottom: 0.5rem;
 }
 
-/*
-   12. JORNADA SUSTENTÁVEL (TIMELINE)
-   */
+/* INFO GRID */
+.info-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    text-align: center;
+    cursor: pointer;
+}
+
+.info-icon {
+    font-size: 2rem;
+}
+
+/* VIDEOS */
+.video-responsive {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video-responsive iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+/* FORM */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 300px;
+    margin: auto;
+}
+
+.form-container input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.form-container button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+.form-container button:hover {
+    background-color: #43a047;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+/* TIMELINE */
 .timeline {
     position: relative;
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 30px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background-color: var(--primary);
-    border-radius: 2px;
+    margin: 2rem 0;
 }
 
 .timeline-item {
+    padding-left: 2rem;
     position: relative;
-    margin-bottom: 40px;
-    padding-left: 50px;
+    margin-bottom: 2rem;
 }
 
 .timeline-dot {
     position: absolute;
-    left: 22px;
-    top: 5px;
-    width: 20px;
-    height: 20px;
+    left: 0;
+    top: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #4caf50;
     border-radius: 50%;
-    background-color: var(--primary);
-    border: 4px solid var(--bg-body);
-    transition: transform var(--transition-fast);
 }
 
-.timeline-item:hover .timeline-dot {
-    transform: scale(1.3);
+.timeline-content h3 {
+    margin-bottom: 0.5rem;
 }
 
-.timeline-date {
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: var(--primary);
-    text-transform: uppercase;
-    margin-bottom: 5px;
-}
-
-.timeline-content {
-    background: var(--bg-card);
-    color: var(--text-main);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
-    text-align: left;
-}
-
-/*
-   13. FOOTER & ACESSIBILIDADE
-   */
-.dark-mode img {
-    filter: brightness(0.8) contrast(1.1);
-}
-
-footer {
-    padding: 50px 5%;
-    background-color: var(--navbar-bg);
-    border-top: 1px solid rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.font-switcher {
-    background: none;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
+/* QUIZ */
+.quiz-btn {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 100%;
     cursor: pointer;
-    padding: 5px 10px;
-    color: inherit;
-    transition: transform 0.2s ease;
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: background 0.3s;
 }
 
-.font-switcher:hover {
-    transform: scale(1.1);
+.quiz-btn:hover {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #fff;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        padding: 1rem;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .menu-toggle {
+        display: flex;
+    }
 }
