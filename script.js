@@ -1,169 +1,223 @@
-/*
-   PROJETO AGRO FORTE - SCRIPT CONTROLADOR (CORRIGIDO)
-*/
+/* 
+   PROJETO AGRO FORTE - SCRIPT CONTROLADOR
+    */
 
-// ================= MODAIS FIXOS =================
+// 1. FUNÇÕES GLOBAIS DE CONTROLE DOS MODAIS NA TAG <DIALOG>
+// Deixadas fora do DOMContentLoaded para que os seletores 'onclick' do HTML funcionem diretamente.
 function openModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) modal.showModal();
+    const modal = document.getElementById(id);
+    if (modal && typeof modal.showModal === 'function') {
+        modal.showModal(); // Abre o pop-up nativo e centralizado pelo CSS
+    }
 }
 
 function closeModal(id) {
-    const modal = document.getElementById(id);
-    if (modal) modal.close();
+    const modal = document.getElementById(id);
+    if (modal && typeof modal.close === 'function') {
+        modal.close(); // Fecha o pop-up nativamente limpando a tela
+    }
 }
 
-// ================= DOM READY =================
+// Inicialização de todos os seletores e eventos internos do DOM
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ================= NAV SCROLL =================
-    const nav = document.querySelector('.navbar');
+    // 
+    // 2. CONFIGURAÇÃO DA NAVBAR AO ROLAR
+    // 
+    const nav = document.querySelector('.navbar');
+    if (nav) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.padding = '10px 5%';
+                nav.style.backgroundColor = 'var(--navbar-bg)';
+                nav.style.boxShadow = 'var(--shadow)';
+            } else {
+                nav.style.padding = '20px 5%';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    }
 
-    if (nav) {
-        window.addEventListener('scroll', () => {
-            nav.style.padding = window.scrollY > 50 ? '10px 5%' : '20px 5%';
-        });
-    }
+    // 
+    // 3. SAUDAÇÃO DINÂMICA
+    //
+    const saudacaoTexto = document.getElementById('saudacao-texto');
+    if (saudacaoTexto) {
+        const hora = new Date().getHours();
+        let mensagem = '';
 
-    // ================= SAUDAÇÃO =================
-    const saudacaoTexto = document.getElementById('saudacao-texto');
+        if (hora >= 5 && hora < 12) {
+            mensagem = ' Bom dia! ';
+        } else if (hora >= 12 && hora < 18) {
+            mensagem = ' Boa tarde! ';
+        } else {
+            mensagem = ' Boa noite! ';
+        }
 
-    if (saudacaoTexto) {
-        const hora = new Date().getHours();
+        saudacaoTexto.textContent = mensagem + 'Bem-vindo ao futuro sustentável.';
+    }
 
-        let msg = hora < 12 ? 'Bom dia' :
-                  hora < 18 ? 'Boa tarde' :
-                  'Boa noite';
+    // 
+    // 4. ALTERNADOR DE MODO ESCURO (DARK MODE)
+    // 
+    const btnDarkMode = document.getElementById("toggle-dark-mode");
+    if (btnDarkMode) {
+        btnDarkMode.addEventListener("click", () => {
+            document.documentElement.classList.toggle("dark-mode");
+            const isDark = document.documentElement.classList.contains("dark-mode");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+    }
 
-        saudacaoTexto.textContent = `${msg}! Bem-vindo ao futuro sustentável.`;
-    }
+    //
+    // 5. MENU MOBILE RESPONSIVO
+    // 
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
 
-    // ================= DARK MODE =================
-    const btnDark = document.getElementById('toggle-dark-mode');
+    if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('is-active');
+        });
 
-    if (btnDark) {
-        btnDark.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark-mode');
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('is-active');
+            });
+        });
+    }
 
-            const isDark = document.documentElement.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-    }
+    // 
+    // 6. FORMULÁRIO DE PARTICIPAÇÃO COM VALIDAÇÃO
+    // 
+    const btnParticipar = document.getElementById('btn-participar');
+    const inputNome = document.getElementById('user-name');
+    const feedbackMsg = document.getElementById('feedback-msg');
 
-    // ================= MENU MOBILE =================
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+    if (btnParticipar && inputNome && feedbackMsg) {
+        btnParticipar.addEventListener('click', () => {
+            const nome = inputNome.value.trim();
 
-    if (mobileMenu && navLinks) {
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    }
+            if (nome !== '') {
+                feedbackMsg.textContent = `Obrigado por se juntar a nós, ${nome}!`;
+                feedbackMsg.style.color = 'var(--primary)';
+                inputNome.value = '';
+            } else {
+                feedbackMsg.textContent = 'Por favor, digite seu nome.';
+                feedbackMsg.style.color = 'red';
+            }
+        });
+    }
 
-    // ================= FORM =================
-    const btn = document.getElementById('btn-participar');
-    const input = document.getElementById('user-name');
-    const msg = document.getElementById('feedback-msg');
+    // 
+    // 7. ANIMAÇÃO SUAVE DE ENTRADA (INFO-ITEMS)
+    // 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
 
-    if (btn && input && msg) {
-        btn.addEventListener('click', () => {
-            const nome = input.value.trim();
+    document.querySelectorAll('.info-item').forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'all 0.6s ease-out';
+        observer.observe(item);
+    });
 
-            if (nome) {
-                msg.textContent = `Obrigado, ${nome}!`;
-                msg.style.color = 'var(--primary)';
-                input.value = '';
-            } else {
-                msg.textContent = 'Digite seu nome.';
-                msg.style.color = 'red';
-            }
-        });
-    }
+    // 
+    // 8. ACESSIBILIDADE - REDIMENSIONAMENTO DE FONTE
+    // 
+    const btnAumentar = document.getElementById('btn-aumentar');
+    const btnDiminuir = document.getElementById('btn-diminuir');
+    let tamanhoAtual = parseInt(localStorage.getItem('fontSize')) || 100;
 
-    // ================= ANIMAÇÃO INFO =================
-    const items = document.querySelectorAll('.info-item');
+    function atualizarFonte() {
+        document.documentElement.style.fontSize = tamanhoAtual + '%';
+        localStorage.setItem('fontSize', tamanhoAtual);
+    }
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.style.opacity = '1';
-                e.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.2 });
+    atualizarFonte(); // Executa para reter a configuração preferida do usuário
 
-    items.forEach(i => {
-        i.style.opacity = '0';
-        i.style.transform = 'translateY(20px)';
-        i.style.transition = '0.6s';
-        observer.observe(i);
-    });
+    if (btnAumentar) {
+        btnAumentar.addEventListener('click', () => {
+            if (tamanhoAtual < 140) {
+                tamanhoAtual += 10;
+                atualizarFonte();
+            }
+        });
+    }
 
-    // ================= FONT SIZE =================
-    const up = document.getElementById('btn-aumentar');
-    const down = document.getElementById('btn-diminuir');
+    if (btnDiminuir) {
+        btnDiminuir.addEventListener('click', () => {
+            if (tamanhoAtual > 80) {
+                tamanhoAtual -= 10;
+                atualizarFonte();
+            }
+        });
+    }
 
-    let size = parseInt(localStorage.getItem('fontSize')) || 100;
+    //
+    // 9. POP-UP MODAL DINÂMICO PARA A SEÇÃO "COMO AJUDAR"
+    // 
+    // Criando a estrutura usando a nova tag estrutural <dialog> para evitar falhas de foco
+    const dialogAjuda = document.createElement('dialog');
+    dialogAjuda.id = 'card-modal';
+    dialogAjuda.classList.add('modal');
 
-    const apply = () => {
-        document.documentElement.style.fontSize = size + '%';
-        localStorage.setItem('fontSize', size);
-    };
+    dialogAjuda.innerHTML = `
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="" style="width:100%; max-height:220px; object-fit:cover; border-radius:12px; margin-bottom:10px;">
+            <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
+        </div>
+    `;
+    document.body.appendChild(dialogAjuda);
 
-    apply();
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalImg = document.getElementById('modal-img');
+    const modalClose = dialogAjuda.querySelector('.close');
 
-    if (up) {
-        up.onclick = () => {
-            if (size < 140) {
-                size += 10;
-                apply();
-            }
-        };
-    }
+    // Mapeamento de cliques nos cards da seção "Como Ajudar"
+    document.querySelectorAll('.cards-grid .card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const imgSrc = card.querySelector('img')?.src || '';
+            const title = card.querySelector('h3')?.textContent || '';
+            const desc = card.querySelector('p')?.textContent || '';
 
-    if (down) {
-        down.onclick = () => {
-            if (size > 80) {
-                size -= 10;
-                apply();
-            }
-        };
-    }
+            if (modalImg) modalImg.src = imgSrc;
+            if (modalTitle) modalTitle.textContent = title;
+            if (modalDesc) modalDesc.textContent = desc;
 
-    // ================= MODAL DINÂMICO =================
-    const dialog = document.createElement('dialog');
-    dialog.id = 'card-modal';
-    dialog.className = 'modal';
+            dialogAjuda.showModal(); // Ativa de forma nativa e centralizada
+        });
+    });
 
-    dialog.innerHTML = `
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="modal-img" style="width:100%; border-radius:10px;">
-            <h3 id="modal-title"></h3>
-            <p id="modal-desc"></p>
-        </div>
-    `;
+    // Evento para fechar o modal dinâmico no botão (X)
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            dialogAjuda.close();
+        });
+    }
 
-    document.body.appendChild(dialog);
-
-    const img = dialog.querySelector('#modal-img');
-    const title = dialog.querySelector('#modal-title');
-    const desc = dialog.querySelector('#modal-desc');
-    const close = dialog.querySelector('.close');
-
-    document.querySelectorAll('.cards-grid .card').forEach(card => {
-        card.addEventListener('click', () => {
-            img.src = card.querySelector('img')?.src || '';
-            title.textContent = card.querySelector('h3')?.textContent || '';
-            desc.textContent = card.querySelector('p')?.textContent || '';
-
-            dialog.showModal();
-        });
-    });
-
-    close.onclick = () => dialog.close();
-
-    dialog.addEventListener('click', e => {
-        if (e.target === dialog) dialog.close();
-    });
+    // 
+    // 10. REQUISITO COMPLEMENTAR: FECHAMENTO AO CLICAR FORA (BACKDROP)
+    // 
+    // Aplica o comportamento em TODOS os elementos <dialog> (HTML fixos e o dinâmico acima)
+    document.querySelectorAll('dialog.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.close();
+            }
+        });
+    });
 });
