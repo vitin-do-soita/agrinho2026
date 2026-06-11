@@ -221,3 +221,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+<script>
+function verificarResposta(botao, correto) {
+  const resultado = document.getElementById('resultado-quiz');
+  if(correto){
+    resultado.textContent = "✅ Parabéns! Resposta correta.";
+    resultado.style.color = "green";
+  } else {
+    resultado.textContent = "❌ Ops! Tente novamente.";
+    resultado.style.color = "red";
+  }
+}
+</script>
